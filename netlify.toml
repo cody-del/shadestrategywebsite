@@ -1,0 +1,3 @@
+[build]
+  command = "node scripts/build-preview.mjs"
+  publish = "preview-build"

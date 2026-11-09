@@ -8,4 +8,6 @@ python3 -m http.server 5478 --bind 127.0.0.1
 
 Open [the homepage](http://127.0.0.1:5478/).
 
-Both inquiry forms validate in the browser and show a preview message. Connect them to the live intake service before publishing. The homepage includes a preview Google Partner image. Use the badge embed from the Google Ads manager account on the published site.
+For the hosted preview, Netlify runs `node scripts/build-preview.mjs` and serves `preview-build/`. The page is marked `noindex`. Both inquiry forms validate and show a preview message without sending anything.
+
+The local homepage includes a Google Partner design reference. The hosted build excludes it. Use the official badge embed from the Google Ads manager account before displaying a badge on the hosted site.
