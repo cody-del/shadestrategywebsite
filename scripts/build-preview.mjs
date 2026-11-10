@@ -18,6 +18,9 @@ await writeFile(new URL('index.html', output), hostedHtml);
 for (const file of ['styles.css', 'navigation.js', 'contact-preview.js']) {
   await cp(new URL(file, root), new URL(file, output));
 }
+for (const directory of ['services/', 'industries/', 'about/', 'results/', 'resources/', 'contact/', 'ebook/']) {
+  await cp(new URL(directory, root), new URL(directory, output), { recursive: true });
+}
 await cp(new URL('assets/', root), new URL('assets/', output), {
   recursive: true,
   filter: (source) => !source.endsWith('/google-partner-preview.png'),
