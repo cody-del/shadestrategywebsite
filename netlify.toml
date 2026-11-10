@@ -1,3 +1,8 @@
 [build]
   command = "node scripts/build-preview.mjs"
   publish = "preview-build"
+
+[[headers]]
+  for = "/assets/shade-strategy-3-mistakes.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex"

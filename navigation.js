@@ -4,8 +4,6 @@ const mainMenu = nav.querySelector(".main-menu");
 const dropdowns = [...nav.querySelectorAll(".nav-dropdown")];
 const services = document.querySelector("#services-menu");
 const explore = document.querySelector(".explore-services");
-const dialog = document.querySelector(".preview-dialog");
-const dialogTitle = document.querySelector("#preview-title");
 const isMobile = window.matchMedia("(max-width: 63rem)");
 
 function setMenu(open) {
@@ -17,7 +15,6 @@ function setMenu(open) {
 
 nav.dataset.menuReady = "";
 toggle.hidden = false;
-explore.hidden = false;
 
 toggle.addEventListener("click", () => {
   setMenu(toggle.getAttribute("aria-expanded") !== "true");
@@ -32,19 +29,22 @@ dropdowns.forEach((dropdown) => {
   });
 });
 
-explore.addEventListener("click", () => {
-  if (isMobile.matches) setMenu(true);
-  services.open = true;
-  services.querySelector("summary").focus();
-});
+if (explore) {
+  explore.hidden = false;
+  explore.addEventListener("click", () => {
+    if (isMobile.matches) setMenu(true);
+    services.open = true;
+    services.querySelector("summary").focus();
+  });
+}
 
 document.addEventListener("pointerdown", (event) => {
-  if (dialog.open || nav.contains(event.target)) return;
+  if (nav.contains(event.target)) return;
   setMenu(false);
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape" || dialog.open) return;
+  if (event.key !== "Escape") return;
   const activeDropdown = dropdowns.find((dropdown) => dropdown.open);
   if (activeDropdown) {
     activeDropdown.open = false;
@@ -55,13 +55,6 @@ document.addEventListener("keydown", (event) => {
     setMenu(false);
     toggle.focus();
   }
-});
-
-mainMenu.querySelectorAll("[data-planned-page]").forEach((button) => {
-  button.addEventListener("click", () => {
-    dialogTitle.textContent = button.dataset.plannedPage;
-    dialog.showModal();
-  });
 });
 
 isMobile.addEventListener("change", () => {

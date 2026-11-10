@@ -1,0 +1,271 @@
+.campaign-section {
+  background: linear-gradient(145deg, #f9f7ff 0%, #fff 52%, #f3fbfd 100%);
+}
+
+#ai-google-ads,
+#ai-seo,
+#how-it-works {
+  scroll-margin-top: 7rem;
+}
+
+.campaign-flow {
+  margin: 2.5rem auto 0;
+  text-align: left;
+}
+
+.flow-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: .75rem;
+  color: #574e67;
+  font-size: .875rem;
+}
+
+.flow-caption button {
+  min-height: 2.75rem;
+  padding: .4rem .85rem;
+  border: 1px solid #d5cbe8;
+  border-radius: 2rem;
+  background: #fff;
+  color: #211a2c;
+  font: inherit;
+  cursor: pointer;
+}
+
+.flow-graph {
+  --flow-gap: clamp(1.5rem, 3vw, 3rem);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.25fr 1fr;
+  gap: var(--flow-gap);
+  align-items: center;
+}
+
+.flow-wires {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.flow-wire,
+.flow-signal {
+  fill: none;
+  stroke: #c9bedb;
+  stroke-width: 1.5;
+}
+
+.flow-signal {
+  stroke: #7850ce;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: .05 .95;
+  opacity: 0;
+  animation: campaign-packet 2.5s linear infinite paused;
+}
+
+.flow-signal[data-active] { opacity: 1; }
+
+.campaign-flow[data-playing] .flow-signal {
+  animation-play-state: running;
+}
+
+.campaign-flow[data-flow-once] .flow-signal {
+  animation: none;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .campaign-flow[data-flow-once][data-playing] .flow-signal[data-active] {
+    animation: campaign-packet 1.1s linear;
+    opacity: 1;
+  }
+}
+
+@keyframes campaign-packet {
+  to { stroke-dashoffset: -1; }
+}
+
+.flow-node {
+  position: relative;
+  min-width: 0;
+  padding: clamp(.85rem, 1.6vw, 1.3rem);
+  border: 1px solid #ded7e9;
+  border-radius: .85rem;
+  background: #fff;
+  box-shadow: 0 5px 18px #2a19400a;
+  color: #463d52;
+  font-size: .9rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  transition: border-color .35s, box-shadow .35s;
+}
+
+.flow-node[data-active] {
+  border-color: #9773d8;
+  box-shadow: 0 0 0 3px #bba1ed33, 0 8px 22px #2a194013;
+}
+
+.flow-node h3 {
+  margin: .35rem 0 .65rem;
+  color: #19151f;
+  font-size: clamp(1rem, 1.55vw, 1.2rem);
+  line-height: 1.13;
+  letter-spacing: -.025em;
+}
+
+.flow-node p,
+.flow-node dl,
+.flow-node dd {
+  margin: 0;
+}
+
+.flow-index,
+.flow-node small,
+.flow-node dt {
+  display: block;
+  font-size: .75rem;
+  font-weight: 700;
+  color: #605174;
+}
+
+.flow-index { letter-spacing: .1em; }
+.flow-node dt { margin-top: .65rem; }
+
+.flow-strategy {
+  background: linear-gradient(150deg, #fff 40%, #f6f0ff);
+  text-align: center;
+}
+
+.flow-checks {
+  width: fit-content;
+  margin: 0 auto;
+  padding-inline-start: 1.15em;
+  text-align: left;
+}
+
+.flow-checks li + li { margin-top: .25rem; }
+
+.flow-brand {
+  display: block;
+  width: 3.5rem;
+  height: auto;
+  margin: 0 auto .8rem;
+}
+.flow-outputs { display: grid; min-width: 0; gap: .85rem; }
+
+.flow-google-accent .flow-index {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .25rem .6rem;
+}
+
+.flow-google-accent .flow-index::after {
+  content: "";
+  width: 2.75rem;
+  height: .25rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg,
+    #4285f4 25%, #ea4335 25% 50%, #fbbc05 50% 75%, #34a853 75%);
+}
+
+.flow-query {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .4rem .55rem;
+  border: 1px solid #d5e3fa;
+  border-radius: 1rem;
+  background: #f3f7fe;
+  font-size: .75rem;
+}
+
+.flow-query svg {
+  width: .9rem;
+  height: .9rem;
+  flex: none;
+  fill: none;
+  stroke: #2464c7;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.flow-node .flow-query + .flow-page-description { margin-top: .5rem; }
+
+.flow-node .flow-ad {
+  margin: .5rem 0;
+  color: #244e9e;
+  font-weight: 700;
+}
+
+.flow-page-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .4rem;
+  margin-bottom: .55rem;
+}
+
+.flow-page-tile {
+  display: grid;
+  place-items: center;
+  min-height: 3.25rem;
+  padding: .5rem;
+  border: 1px solid #ded4ef;
+  border-radius: .45rem;
+  background: #f0eaff;
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.flow-page-tile + .flow-page-tile {
+  border-color: #ecd1b9;
+  background: #fff0de;
+}
+
+.flow-approval ul {
+  padding-inline-start: 1rem;
+  margin-block: 0 .65rem;
+}
+
+.flow-approval p {
+  padding-top: .6rem;
+  border-top: 1px solid #ece6f2;
+  font-size: .8rem;
+}
+
+@media (max-width: 50rem) {
+  .flow-graph {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  .flow-business,
+  .flow-strategy,
+  .flow-approval {
+    width: min(100%, 22rem);
+  }
+
+  .flow-outputs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 37rem);
+  }
+}
+
+@media (max-width: 24rem) {
+  .flow-node { padding: .65rem; }
+  .flow-page-pair { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-node { transition: none; }
+  .flow-signal, .flow-signal[data-active] { animation: none; opacity: 0; }
+}
