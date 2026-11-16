@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <meta name="description" content="Tell Shade Strategy about your window treatment business. A few questions, then you can book a strategy call with Cody.">
+  <meta name="description" content="Answer a few quick questions about your window treatment business and book a strategy call with Cody at Shade Strategy.">
   <title>Book a strategy call | Shade Strategy</title>
   <link rel="stylesheet" href="../styles.css?v=industry-services">
   <script src="../navigation.js?v=site-pages" defer></script>
+  <script src="steps.js?v=steps" defer></script>
   <script src="lead-form.js?v=prospect-filter" defer></script>
   <style>
   .ss-lf{--ss-lf-ink:#1b1f24;--ss-lf-muted:#4a5360;--ss-lf-line:#6b7280;--ss-lf-accent:#1d4ed8;--ss-lf-error:#b42318;font:inherit;color:var(--ss-lf-ink);max-width:40rem;margin:0 auto;text-align:left}
@@ -42,8 +43,72 @@
   .ss-lf .ss-lf-link{display:block;min-height:44px;margin:0 0 .5rem;padding:.625rem 0;overflow-wrap:anywhere;color:var(--ss-lf-accent)}
   </style>
   <style>
-  .strategy-form{padding:clamp(2.5rem,6vw,4.5rem) max(var(--edge),1.25rem)}
-  .strategy-form .ss-lf{--ss-lf-accent:var(--ink)}
+  .strategy-page{background:linear-gradient(to bottom,#fff 0,transparent 22rem),linear-gradient(90deg,#f4eefc,#edf8fa)}
+  .strategy-layout{display:grid;gap:clamp(1.5rem,4vw,3.5rem);max-width:74rem;margin:0 auto;padding:clamp(1.75rem,5vw,4.5rem) max(var(--edge),1rem) clamp(3rem,7vw,6rem);align-items:start}
+  @media (min-width:960px){.strategy-layout{grid-template-columns:minmax(0,1fr) minmax(0,38rem)}.strategy-intro{position:sticky;top:8rem}}
+  .strategy-eyebrow{margin:0 0 .75rem;font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5b3fc4}
+  .strategy-intro h1{margin:0;font-size:clamp(2.25rem,5vw,3.75rem);line-height:1;letter-spacing:-.06em;text-wrap:balance}
+  .strategy-lede{max-width:34rem;margin:1rem 0 0;color:var(--muted);font-size:clamp(1.05rem,1.6vw,1.2rem);line-height:1.55}
+  .strategy-points{display:grid;gap:.625rem;margin:1.5rem 0 0;padding:0;list-style:none}
+  .strategy-points li{position:relative;padding-left:2rem;line-height:1.45;font-weight:600}
+  .strategy-points li::before{content:"";position:absolute;left:0;top:.05rem;width:1.35rem;height:1.35rem;border-radius:50%;background:var(--shade-gradient)}
+  .strategy-points li::after{content:"";position:absolute;left:.47rem;top:.33rem;width:.4rem;height:.7rem;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .strategy-email{margin:1.5rem 0 0;color:var(--muted);font-size:.9375rem}
+  .strategy-email a{color:var(--ink);font-weight:600}
+  @media (max-width:959px){.strategy-points{grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}.strategy-points li:nth-child(3),.strategy-email{display:none}}
+  .strategy-form .ss-lf{--ss-lf-accent:var(--ink);--ss-lf-line:#c3c6cd;--ss-lf-muted:#555b66;max-width:none;margin:0;padding:clamp(1.25rem,4vw,2.25rem);border:1px solid #e4e4e7;border-radius:22px;background:#fff;box-shadow:0 1px 2px #1616160d,0 20px 48px -24px #16161640;scroll-margin-top:7rem}
+  .strategy-form .ss-steps-head{display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:-.5rem 0 .5rem}
+  .strategy-form .ss-back{display:inline-flex;align-items:center;gap:.375rem;min-height:44px;margin-left:-.5rem;padding:0 .5rem;border:0;border-radius:8px;background:none;color:var(--ink);font-weight:600;font-size:.9375rem}
+  .strategy-form .ss-back:hover{background:#f4f4f5}
+  .strategy-form .ss-back[aria-hidden="true"]{visibility:hidden}
+  .strategy-form .ss-step-count{margin:0;font-size:.875rem;font-weight:600;color:var(--ss-lf-muted);font-variant-numeric:tabular-nums}
+  .strategy-form .ss-progress{height:6px;margin:0 0 1.75rem;border-radius:999px;background:#ececef;overflow:hidden}
+  .strategy-form .ss-progress span{display:block;height:100%;background:var(--shade-gradient);transform:scaleX(.1667);transform-origin:left;transition:transform .35s ease}
+  .strategy-form .ss-step+.ss-step{margin-top:2.25rem;padding-top:2.25rem;border-top:1px solid #ececef}
+  .strategy-form .ss-lf[data-stepped] .ss-step+.ss-step{margin-top:0;padding-top:0;border-top:0}
+  .strategy-form .ss-lf[data-stepped] .ss-step[data-off]{visibility:hidden;height:0;overflow:hidden}
+  .strategy-form .ss-lf[data-stepped] .ss-step:not([data-off]){animation:ss-in .28s ease-out}
+  @keyframes ss-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .strategy-form .ss-step-title{margin:0 0 1.5rem;font-size:clamp(1.4rem,3.2vw,1.875rem);line-height:1.2;letter-spacing:-.035em;font-weight:700;text-wrap:balance}
+  .strategy-form .ss-step-title:focus{outline:none}
+  .strategy-form .ss-step-title:has(+.ss-step-hint),.strategy-form legend:has(+.ss-step-hint) .ss-step-title{margin-bottom:.375rem}
+  .strategy-form .ss-step-hint{margin:0 0 1.25rem;color:var(--ss-lf-muted)}
+  .strategy-form .ss-lf legend{margin:0}
+  .strategy-form .ss-lf .ss-lf-field{margin:0 0 1.25rem}
+  .strategy-form .ss-lf .ss-lf-label{font-weight:600;margin-bottom:.5rem}
+  .strategy-form .ss-lf legend.ss-lf-label{margin-bottom:.5rem}
+  .strategy-form .ss-lf .ss-lf-tag{font-weight:400}
+  .strategy-form .ss-lf .ss-lf-input{min-height:50px;padding:.625rem .875rem;border-color:var(--ss-lf-line);border-radius:12px;font-size:1rem}
+  .strategy-form .ss-lf .ss-lf-input::placeholder{color:#8a8f99}
+  .strategy-form .ss-lf .ss-lf-input:hover{border-color:#8a8f99}
+  .strategy-form .ss-choices{display:grid;gap:.625rem;grid-template-columns:1fr}
+  .strategy-form .ss-choices-compact,.strategy-form .ss-choices-three{grid-template-columns:1fr 1fr}
+  .strategy-form .ss-choices-three{grid-template-columns:repeat(3,1fr)}
+  @media (min-width:520px){.strategy-form .ss-choices{grid-template-columns:1fr 1fr}.strategy-form .ss-choices-stack{grid-template-columns:1fr}.strategy-form .ss-choices-three{grid-template-columns:repeat(3,1fr)}}
+  .strategy-form .ss-choices .ss-lf-opt{min-height:56px;padding:.75rem 1rem;border:1px solid var(--ss-lf-line);border-radius:14px;background:#fff;font-weight:500;transition:border-color .15s ease,background-color .15s ease,box-shadow .15s ease,transform .1s ease}
+  .strategy-form .ss-choices-small .ss-lf-opt{min-height:48px;padding:.5rem .875rem}
+  .strategy-form .ss-choices .ss-lf-opt:hover{border-color:var(--ink);background:#fafafa}
+  .strategy-form .ss-choices .ss-lf-opt:active{transform:scale(.99)}
+  .strategy-form .ss-choices .ss-lf-opt:has(input:checked){border-color:var(--ink);background:#f4f1fd;box-shadow:inset 0 0 0 1px var(--ink);font-weight:700}
+  .strategy-form .ss-choices .ss-lf-opt input:focus-visible{outline:none}
+  .strategy-form .ss-choices .ss-lf-opt:has(input:focus-visible){outline:3px solid #3764c4;outline-offset:2px}
+  .strategy-form .ss-lf fieldset:has([aria-invalid="true"]) .ss-lf-opt{border-color:var(--ss-lf-error)}
+  .strategy-form .ss-lf .ss-lf-consent{gap:.75rem;padding:.875rem 1rem;border-radius:12px;background:#f6f6f7;font-size:.8125rem;line-height:1.45;color:var(--ss-lf-muted)}
+  .strategy-form .ss-note{margin:0 0 1.25rem}
+  .strategy-form .ss-note summary{list-style:none;display:inline-flex;align-items:center;gap:.375rem;min-height:44px;font-weight:600;cursor:pointer}
+  .strategy-form .ss-note summary::-webkit-details-marker{display:none}
+  .strategy-form .ss-note summary::before{content:"+";display:inline-grid;place-items:center;width:1.375rem;height:1.375rem;border:1px solid var(--ss-lf-line);border-radius:50%;font-weight:700;line-height:1}
+  .strategy-form .ss-note[open] summary::before{content:"\2212"}
+  .strategy-form .ss-note[open] summary{margin-bottom:.5rem}
+  .strategy-form .ss-step-nav{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-top:1.75rem}
+  .strategy-form .ss-lf .ss-lf-button{min-height:52px;padding:.8rem 2rem;border-radius:999px;font-weight:700;font-size:1rem}
+  .strategy-form .ss-lf .ss-lf-button:not(:disabled):hover{background:#383838;border-color:#383838}
+  .strategy-form .ss-step-nav-final .ss-lf-button{width:100%}
+  .strategy-form .ss-privacy{margin:0;width:100%;text-align:center;font-size:.8125rem;color:var(--ss-lf-muted)}
+  .strategy-form .ss-privacy a{color:inherit}
+  .strategy-form .ss-lf-result p{font-size:1.25rem;font-weight:600;line-height:1.4}
+  @media (max-width:519px){.strategy-form .ss-step-nav .ss-lf-button{width:100%}}
+  @media (prefers-reduced-motion:reduce){.strategy-form .ss-progress span,.strategy-form .ss-choices .ss-lf-opt{transition:none}.strategy-form .ss-lf[data-stepped] .ss-step:not([data-off]){animation:none}}
   </style>
 </head>
 <body>
@@ -96,51 +161,118 @@
       </span>
     </button>
   </header>
-  <main id="main-content" class="service-page">
-    <section class="service-hero" aria-labelledby="page-title">
-      <div class="hero-content">
+    <main id="main-content" class="strategy-page">
+    <section class="strategy-layout" aria-labelledby="page-title">
+      <div class="strategy-intro">
+        <p class="strategy-eyebrow">Strategy call</p>
         <h1 id="page-title">Book a strategy call</h1>
-        <p>Tell us a little about your window treatment business. It takes about two minutes, and if it looks like a fit you can pick a time with Cody right away.</p>
+        <p class="strategy-lede">Answer a few quick questions about your window treatment business. If it looks like a fit, you’ll pick a time with Cody right away.</p>
+        <ul class="strategy-points" role="list">
+          <li>Takes about a minute</li>
+          <li>Talk with Cody, our founder</li>
+          <li>Go over your SEO, ads or website, whatever you want to change</li>
+        </ul>
+        <p class="strategy-email">Prefer email? <a href="mailto:cody@shadestrategy.com">cody@shadestrategy.com</a></p>
       </div>
-    </section>
+      <div class="strategy-form">
+        <form class="ss-lf" data-shade-lead-form data-endpoint="https://gpzcgthzbmqexqtzvcpd.supabase.co/functions/v1/lead-form" data-sitekey="0x4AAAAAAGDn79T2ZVsXk_Ga" method="post" novalidate>
+          <div data-fields>
+            <div class="ss-steps-head" data-steps-ui hidden>
+              <button class="ss-back" type="button" data-back><span aria-hidden="true">←</span> Back</button>
+              <p class="ss-step-count" data-step-count>1 of 6</p>
+            </div>
+            <div class="ss-progress" data-steps-ui hidden aria-hidden="true"><span data-progress></span></div>
+            <p class="ss-lf-intro" data-rep-only hidden>You’re entering this for a lead. Answer as they told you.</p>
 
-    <section class="strategy-form" aria-label="Strategy call questions">
-      <form class="ss-lf" data-shade-lead-form data-endpoint="https://gpzcgthzbmqexqtzvcpd.supabase.co/functions/v1/lead-form" data-sitekey="0x4AAAAAAGDn79T2ZVsXk_Ga" method="post" novalidate>
-        <div data-fields>
-          <p class="ss-lf-intro" data-rep-only hidden>You’re entering this for a lead. Answer as they told you.</p>
+        <section class="ss-step" data-step="1">
+          <fieldset class="ss-lf-field" data-field="support">
+            <legend><h2 class="ss-step-title" tabindex="-1">What can we help you with?</h2></legend>
+            <p class="ss-step-hint">Pick any that apply. You can skip this.</p>
+            <div class="ss-choices ss-choices-compact">
+              <label class="ss-lf-opt"><input type="checkbox" name="support" value="web"><span>Website</span></label>
+              <label class="ss-lf-opt"><input type="checkbox" name="support" value="seo"><span>SEO</span></label>
+              <label class="ss-lf-opt"><input type="checkbox" name="support" value="gads"><span>Google Ads</span></label>
+              <label class="ss-lf-opt"><input type="checkbox" name="support" value="meta"><span>Meta Ads</span></label>
+              <label class="ss-lf-opt"><input type="checkbox" name="support" value="gbp"><span>Google Business Profile</span></label>
+              <label class="ss-lf-opt"><input type="checkbox" name="support" value="ghl"><span>GoHighLevel CRM</span></label>
+              <label class="ss-lf-opt"><input type="checkbox" name="support" value="calls"><span>Call tracking</span></label>
+            </div>
+          </fieldset>
+          <div class="ss-step-nav" data-steps-ui hidden>
+            <button class="ss-lf-button" type="button" data-next>Continue</button>
+          </div>
+        </section>
+
+        <section class="ss-step" data-step="2" data-auto>
+          <fieldset class="ss-lf-field" data-field="revenue">
+            <legend><h2 class="ss-step-title" tabindex="-1">What’s your average monthly revenue?</h2></legend>
+            <p class="ss-step-hint">A rough range is fine. It helps us suggest the right plan.</p>
+            <div class="ss-choices">
+              <label class="ss-lf-opt"><input type="radio" name="revenue" value="lt20" required><span>Less than $20,000</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="revenue" value="20to30" required><span>$20,000–$29,999</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="revenue" value="30to40" required><span>$30,000–$39,999</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="revenue" value="40to60" required><span>$40,000–$59,999</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="revenue" value="60to100" required><span>$60,000–$99,999</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="revenue" value="100plus" required><span>$100,000+</span></label>
+            </div>
+          </fieldset>
+          <div class="ss-step-nav" data-steps-ui hidden>
+            <button class="ss-lf-button" type="button" data-next>Continue</button>
+          </div>
+        </section>
+
+        <section class="ss-step" data-step="3" data-auto>
+          <fieldset class="ss-lf-field" data-field="invest">
+            <legend><h2 class="ss-step-title" tabindex="-1">How much could you put into marketing each month?</h2></legend>
+            <p class="ss-step-hint">Your best guess is fine.</p>
+            <div class="ss-choices">
+              <label class="ss-lf-opt"><input type="radio" name="invest" value="lt1" required><span>Less than $1,000</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="invest" value="1to2" required><span>$1,000–$2,499</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="invest" value="2to4" required><span>$2,500–$3,999</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="invest" value="4to6" required><span>$4,000–$5,999</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="invest" value="6plus" required><span>$6,000+</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="invest" value="unsure" required><span>I’m not sure yet</span></label>
+            </div>
+          </fieldset>
+          <div class="ss-step-nav" data-steps-ui hidden>
+            <button class="ss-lf-button" type="button" data-next>Continue</button>
+          </div>
+        </section>
+
+        <section class="ss-step" data-step="4" data-auto>
+          <fieldset class="ss-lf-field" data-field="timing">
+            <legend><h2 class="ss-step-title" tabindex="-1">When are you hoping to decide?</h2></legend>
+            <p class="ss-step-hint">No pressure either way.</p>
+            <div class="ss-choices ss-choices-stack">
+              <label class="ss-lf-opt"><input type="radio" name="timing" value="asap" required><span>As soon as possible</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="timing" value="30d" required><span>Within 30 days</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="timing" value="60to90d" required><span>Within 60–90 days</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="timing" value="exploring" required><span>Just exploring options</span></label>
+            </div>
+          </fieldset>
+          <div class="ss-step-nav" data-steps-ui hidden>
+            <button class="ss-lf-button" type="button" data-next>Continue</button>
+          </div>
+        </section>
+
+        <section class="ss-step" data-step="5">
+          <h2 class="ss-step-title" tabindex="-1">Tell us about your business</h2>
           <div class="ss-lf-field" data-field="name">
-            <label class="ss-lf-label" for="ss-lf-name">Business name <span class="ss-lf-tag">(required)</span></label>
+            <label class="ss-lf-label" for="ss-lf-name">Business name</label>
             <input class="ss-lf-input" type="text" id="ss-lf-name" name="name" maxlength="120" autocomplete="organization" required>
           </div>
-      
-          <fieldset class="ss-lf-field" data-field="revenue">
-            <legend>What is your average monthly business revenue? <span class="ss-lf-tag">(required)</span></legend>
-            <label class="ss-lf-opt"><input type="radio" name="revenue" value="lt20" required><span>Less than $20,000/month</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="revenue" value="20to30" required><span>$20,000–$29,999/month</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="revenue" value="30to40" required><span>$30,000–$39,999/month</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="revenue" value="40to60" required><span>$40,000–$59,999/month</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="revenue" value="60to100" required><span>$60,000–$99,999/month</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="revenue" value="100plus" required><span>$100,000+/month</span></label>
+          <div class="ss-lf-field" data-field="website">
+            <label class="ss-lf-label" for="ss-lf-website">Website <span class="ss-lf-tag">(optional)</span></label>
+            <input class="ss-lf-input" type="text" id="ss-lf-website" name="website" maxlength="200" autocomplete="url" inputmode="url" placeholder="yourbusiness.com">
+          </div>
+          <fieldset class="ss-lf-field" data-field="runningAds">
+            <legend class="ss-lf-label">Running ads right now? <span class="ss-lf-tag">(optional)</span></legend>
+            <div class="ss-choices ss-choices-three ss-choices-small">
+              <label class="ss-lf-opt"><input type="radio" name="runningAds" value="yes"><span>Yes</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="runningAds" value="no"><span>No</span></label>
+              <label class="ss-lf-opt"><input type="radio" name="runningAds" value="unsure"><span>Not sure</span></label>
+            </div>
           </fieldset>
-      
-          <fieldset class="ss-lf-field" data-field="invest">
-            <legend>How much are you currently willing to invest each month in growing your business through marketing? <span class="ss-lf-tag">(required)</span></legend>
-            <label class="ss-lf-opt"><input type="radio" name="invest" value="lt1" required><span>Less than $1,000/month</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="invest" value="1to2" required><span>$1,000–$2,499/month</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="invest" value="2to4" required><span>$2,500–$3,999/month</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="invest" value="4to6" required><span>$4,000–$5,999/month</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="invest" value="6plus" required><span>$6,000+/month</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="invest" value="unsure" required><span>I’m not sure yet</span></label>
-          </fieldset>
-      
-          <fieldset class="ss-lf-field" data-field="timing">
-            <legend>When are you looking to make a decision? <span class="ss-lf-tag">(required)</span></legend>
-            <label class="ss-lf-opt"><input type="radio" name="timing" value="asap" required><span>As soon as possible</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="timing" value="30d" required><span>Within 30 days</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="timing" value="60to90d" required><span>Within 60–90 days</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="timing" value="exploring" required><span>Just exploring options right now</span></label>
-          </fieldset>
-      
           <div class="ss-lf-rep" data-rep-only hidden>
             <div class="ss-lf-field" data-field="repName">
               <label class="ss-lf-label" for="ss-lf-repName">Your name (CS rep) <span class="ss-lf-tag">(required)</span></label>
@@ -151,57 +283,47 @@
               <input class="ss-lf-input" type="text" id="ss-lf-retailer" name="retailer" maxlength="120" autocomplete="off" required>
             </div>
           </div>
-      
+          <div class="ss-step-nav" data-steps-ui hidden>
+            <button class="ss-lf-button" type="button" data-next>Continue</button>
+          </div>
+        </section>
+
+        <section class="ss-step" data-step="6">
+          <h2 class="ss-step-title" tabindex="-1">Where should we reach you?</h2>
+          <p class="ss-step-hint" data-website-only>Last step. If it looks like a fit, you’ll pick a time with Cody next.</p>
           <div class="ss-lf-field" data-field="contact">
-            <label class="ss-lf-label" for="ss-lf-contact"><span data-website-only>Your name</span><span data-rep-only hidden>Their name</span> <span class="ss-lf-tag">(required)</span></label>
+            <label class="ss-lf-label" for="ss-lf-contact"><span data-website-only>Your name</span><span data-rep-only hidden>Their name</span></label>
             <input class="ss-lf-input" type="text" id="ss-lf-contact" name="contact" maxlength="120" autocomplete="name" required>
           </div>
           <div class="ss-lf-field" data-field="email">
-            <label class="ss-lf-label" for="ss-lf-email">Email <span class="ss-lf-tag">(required)</span></label>
+            <label class="ss-lf-label" for="ss-lf-email">Email</label>
             <input class="ss-lf-input" type="email" id="ss-lf-email" name="email" maxlength="254" autocomplete="email" inputmode="email" required>
           </div>
           <div class="ss-lf-field" data-field="phone">
-            <label class="ss-lf-label" for="ss-lf-phone">Phone <span class="ss-lf-tag" data-website-only>(required for texts)</span><span class="ss-lf-tag" data-rep-only hidden>(optional)</span></label>
+            <label class="ss-lf-label" for="ss-lf-phone">Phone <span class="ss-lf-tag" data-website-only>(needed for texts)</span><span class="ss-lf-tag" data-rep-only hidden>(optional)</span></label>
             <input class="ss-lf-input" type="tel" id="ss-lf-phone" name="phone" maxlength="40" autocomplete="tel" inputmode="tel">
           </div>
-          <div class="ss-lf-field" data-field="website">
-            <label class="ss-lf-label" for="ss-lf-website">Website <span class="ss-lf-tag">(optional)</span></label>
-            <input class="ss-lf-input" type="text" id="ss-lf-website" name="website" maxlength="200" autocomplete="url" inputmode="url">
-          </div>
-      
-          <fieldset class="ss-lf-field" data-field="support">
-            <legend>What marketing support are you looking for? <span class="ss-lf-tag">(optional)</span></legend>
-            <label class="ss-lf-opt"><input type="checkbox" name="support" value="web"><span>Website</span></label>
-            <label class="ss-lf-opt"><input type="checkbox" name="support" value="seo"><span>SEO</span></label>
-            <label class="ss-lf-opt"><input type="checkbox" name="support" value="gads"><span>Google Ads</span></label>
-            <label class="ss-lf-opt"><input type="checkbox" name="support" value="meta"><span>Meta Ads</span></label>
-            <label class="ss-lf-opt"><input type="checkbox" name="support" value="gbp"><span>GBP</span></label>
-            <label class="ss-lf-opt"><input type="checkbox" name="support" value="ghl"><span>GHL</span></label>
-            <label class="ss-lf-opt"><input type="checkbox" name="support" value="calls"><span>Call tracking</span></label>
-          </fieldset>
-      
-          <fieldset class="ss-lf-field" data-field="runningAds">
-            <legend>Are you running ads right now? <span class="ss-lf-tag">(optional)</span></legend>
-            <label class="ss-lf-opt"><input type="radio" name="runningAds" value="yes"><span>Yes</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="runningAds" value="no"><span>No</span></label>
-            <label class="ss-lf-opt"><input type="radio" name="runningAds" value="unsure"><span>Not sure</span></label>
-          </fieldset>
-      
           <div class="ss-lf-field" data-field="smsAgreed" data-website-only>
             <label class="ss-lf-opt ss-lf-consent"><input type="checkbox" id="ss-lf-smsAgreed" name="smsAgreed" value="yes"><span>I agree to receive text messages from Shade Strategy about my inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent isn’t a condition of purchase.</span></label>
           </div>
-      
-          <div class="ss-lf-field" data-field="note">
-            <label class="ss-lf-label" for="ss-lf-note">Anything else we should know? <span class="ss-lf-tag">(optional)</span></label>
-            <textarea class="ss-lf-input" id="ss-lf-note" name="note" maxlength="1000" rows="4"></textarea>
-          </div>
-      
+          <details class="ss-note">
+            <summary>Add a note <span class="ss-lf-tag">(optional)</span></summary>
+            <div class="ss-lf-field" data-field="note">
+              <label class="ss-lf-label" for="ss-lf-note">Anything else we should know?</label>
+              <textarea class="ss-lf-input" id="ss-lf-note" name="note" maxlength="1000" rows="3"></textarea>
+            </div>
+          </details>
           <div class="ss-lf-check" data-turnstile></div>
           <p class="ss-lf-alert" id="ss-lf-alert" data-alert aria-live="polite"></p>
-          <button class="ss-lf-button" type="submit" data-submit disabled>Send</button>
-        </div>
-        <div class="ss-lf-result" data-result tabindex="-1" hidden></div>
-      </form>
+          <div class="ss-step-nav ss-step-nav-final">
+            <button class="ss-lf-button" type="submit" data-submit disabled>See next steps</button>
+            <p class="ss-privacy">We use your answers only to follow up on your inquiry. <a href="https://shadestrategy.com/published/privacy-policy">Privacy Policy</a></p>
+          </div>
+        </section>
+          </div>
+          <div class="ss-lf-result" data-result tabindex="-1" hidden></div>
+        </form>
+      </div>
     </section>
   </main>
   <footer class="site-footer">
