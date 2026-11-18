@@ -1211,7 +1211,7 @@ button, summary { cursor: pointer; }
   .industry-services .offering { padding-inline: 1.25rem; }
 }
 
-/* Offer pages: Full Service tiers and the à la carte list */
+/* Offer pages: Full Service tiers and the individual services list */
 .tier-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
