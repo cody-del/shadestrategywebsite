@@ -93,6 +93,24 @@ The first five come from the README table. Redirects live in `netlify.toml` and 
 - Keep `shadestrategywebsite.netlify.app` and deploy previews out of search with an `X-Robots-Tag: noindex` header on non-production hosts.
 - Ask Emil to add a Search Console Domain property (one TXT record) before the switch, so indexing can be watched afterward. Neither Google account has a property for this domain today.
 
+### SEO safeguards (added 2026-11-18 after an SEO check)
+
+This section follows `~/repos/internal/client-seo-checks/site-migration-checklist.md`, which was written after the Naples rebuild lost 35% of its clicks.
+
+What the old site has today (OpenSEO, 2026-11-18):
+- **Rankings:** only 2 keywords, both on the homepage, at positions 35 and 47. No inner page ranks.
+- **Backlinks:** 86 referring domains. Almost all of them are spam directory links to the homepage. The real ones are wcaa.org/industry-partners and aibusinesssites.com, both linking to `/`, and robuta.com, linking to `/project/marketing-for-window-treatment-manufacturers`. The homepage keeps its address, and the robuta page redirects to the matching industry page. No disavow is needed.
+- **Analytics:** there is no Search Console property and no GA4, so there's no first-party baseline yet.
+
+Safeguards:
+1. **Search Console Domain property before anything else.** Emil adds it (one DNS TXT record at Namecheap). Search Console then shows up to 16 months of history. Export pages and query+page data into `migration/` and confirm that no old inner page gets clicks. If one does, its redirect is revisited.
+2. **Baseline file.** Save `migration/seo-baseline.json`, with every old URL's status, title, H1, meta description, canonical and JSON-LD, before the switch.
+3. **The homepage keeps its title, schema and links.** The new title stays "Window Treatment Marketing | Shade Strategy". Add Organization JSON-LD to the new homepage, carrying over name, legalName "Winc Solutions LLC, DBA Shade Strategy", telephone (615) 795-7515, sameAs and a logo hosted on this site. Drop the self-written aggregateRating, which Google ignores for an organization's own reviews. The new site has no JSON-LD on any page today.
+4. **Blog posts keep their words.** Same address, title, H1, body and publish date. Add Article JSON-LD with the original dates.
+5. **Homepage redirects are a deliberate exception.** The checklist warns against sending old pages to the homepage. Here it applies only to pages with no rankings and no links (thank-you, coming-soon, industry-marketing, workflow automations). If the Search Console export in step 1 shows clicks on any of them, give it a closer target instead.
+6. **Redirect test.** `scripts/check-urls.mjs <origin>` requests every old URL as Googlebot, without following redirects, and fails unless each returns 200 or a single 301 to its mapped page, which itself returns 200. Run it against the deploy preview and again against production after the DNS switch.
+7. **After launch.** Submit the sitemap, request indexing for the homepage and the top pages, watch Search Console for 404s and canonical problems for two weeks, and re-measure at 4 and 8 weeks.
+
 ### Cutover order
 
 1. Build all of the above on branch `feat/webflow-exit`, check it locally and on a deploy preview, then open a PR. It merges on Emil's OK. Merging only changes the netlify.app site.
