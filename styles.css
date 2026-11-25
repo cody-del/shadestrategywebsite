@@ -1546,3 +1546,28 @@ button, summary { cursor: pointer; }
 .ebook-check { min-block-size: 65px; margin-block-start: .75rem; }
 .ebook-status { min-block-size: 1.4em; margin: .5rem 0 0; color: var(--muted); font-size: .9rem; }
 .ebook-status:empty { min-block-size: 0; margin: 0; }
+
+/* Proof strip: client logos (white on the dark strip) and the two published quotes */
+.proof-head { display: grid; gap: .9rem; align-content: start; }
+.proof-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.proof-logos img {
+  display: block;
+  inline-size: auto;
+  block-size: 2.4rem;
+  max-inline-size: 6.5rem;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: .85;
+}
+.proof-list figure { margin: 0; }
+.proof-list blockquote { margin: 0; }
+.proof-list blockquote p::before { content: "“"; }
+.proof-list blockquote p::after { content: "”"; }
