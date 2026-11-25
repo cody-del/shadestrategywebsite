@@ -395,12 +395,6 @@ button, summary { cursor: pointer; }
   background: var(--form-surface, #2d2d2d);
 }
 .contact-fields button:disabled { opacity: .55; cursor: default; }
-.contact-status {
-  margin: 0;
-  color: var(--form-status, #ddd);
-  font-size: .9rem;
-}
-.contact-status:not(:empty) { margin-block-start: .75rem; }
 
 .about-me {
   display: grid;
@@ -775,31 +769,10 @@ button, summary { cursor: pointer; }
 }
 
 .inquiry {
-  --form-ink: var(--ink);
-  --form-surface: var(--paper);
-  --form-status: var(--muted);
   padding: clamp(2.75rem, 6vw, 5.5rem) clamp(1.5rem, 4vw, 3.5rem);
   border-block-start: 1px solid #e5e5e5;
   background: #f7f7f7;
 }
-.inquiry-form {
-  max-inline-size: 44rem;
-  margin-inline: auto;
-}
-.inquiry-fields {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-.inquiry-wide { grid-column: 1 / -1; }
-.inquiry-fields textarea {
-  min-block-size: 6.5rem;
-  resize: vertical;
-}
-.inquiry-fields .cta {
-  justify-self: center;
-  margin-block-start: .4rem;
-}
-.inquiry-form .contact-status { text-align: center; }
 .contact-call {
   display: flex;
   flex-wrap: wrap;
@@ -1510,3 +1483,113 @@ button, summary { cursor: pointer; }
 /* On the homepage the package tiles span the same width as the service grid below */
 #full-service .tier-mini-grid,
 #full-service .offer-divider { max-inline-size: none; }
+
+/* Blog posts and legal pages carried over from Webflow */
+.blog-post .service-hero h1 {
+  max-inline-size: 20em;
+  font-size: clamp(2.25rem, 4.6vw, 3.9rem);
+  line-height: 1.04;
+}
+.article-label {
+  margin: 0 0 1rem;
+  color: #51367e;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.service-hero .article-label { margin: 0 auto 1rem; font-size: .8rem; }
+.article-label a { color: inherit; text-decoration: none; }
+.article-label a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.service-hero .article-meta {
+  margin-block-start: 1rem;
+  color: var(--muted);
+  font-size: .95rem;
+}
+.article-figure {
+  max-inline-size: 46rem;
+  margin: clamp(2rem, 5vw, 3.5rem) auto 0;
+  padding-inline: max(var(--edge), 1.25rem);
+}
+.article-figure img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: .75rem;
+}
+.article-body {
+  max-inline-size: 46rem;
+  margin-inline: auto;
+  padding: clamp(2rem, 5vw, 3.5rem) max(var(--edge), 1.25rem) clamp(3rem, 7vw, 5.5rem);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+.article-body > :first-child { margin-block-start: 0; }
+.article-body h2,
+.article-body h3,
+.article-body h4 {
+  margin: 2.25em 0 .6em;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.article-body h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+.article-body h3 { font-size: clamp(1.3rem, 2.4vw, 1.6rem); }
+.article-body h4 { font-size: 1.2rem; }
+.article-body p,
+.article-body ul,
+.article-body ol { margin: 0 0 1.1em; }
+.article-body ul,
+.article-body ol { padding-inline-start: 1.35em; }
+.article-body li { margin-block: .35em; }
+.article-body a { text-underline-offset: .2em; }
+.legal-page .article-body { font-size: 1.05rem; }
+
+/* Homepage contact strip and closing section link to the strategy call */
+.contact-strip .cta { justify-self: end; }
+@media (max-width: 63rem) {
+  .contact-strip .cta { justify-self: start; }
+}
+
+/* Individual service prices lead; Full Service tiles stay quieter outside the Full Service page */
+.offering-price {
+  margin: .7rem 0 0;
+  font-size: clamp(1.35rem, 2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.03em;
+}
+.offering-price span {
+  display: block;
+  margin-block-end: .2rem;
+  color: #51367e;
+  font-size: .75rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.offering-price small {
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.tier-mini-quiet .tier-mini { border-color: #e5e5e5; }
+.tier-mini-quiet .tier-mini-price { font-weight: 600; color: var(--muted); }
+.site-nav .nav-label,
+.site-nav .nav-booking { white-space: nowrap; }
+/* The desktop bar only has room for "Sign in" from 75rem up; below that it lives in the footer (and the phone menu) */
+@media (min-width: 63.0625rem) and (max-width: 75rem) {
+  .main-menu .nav-signin { display: none; }
+}
+
+/* Button feedback: hover eases in, a press nudges the button down, both still for reduced motion */
+.cta,
+.ss-lf-button { transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .1s ease; }
+.cta:active,
+.ss-lf-button:active:not(:disabled) { transform: translateY(1px); }
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .ss-lf-button { transition: none; }
+  .cta:active,
+  .ss-lf-button:active:not(:disabled) { transform: none; }
+}

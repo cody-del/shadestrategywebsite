@@ -1,0 +1,1187 @@
+{
+  "capturedAt": "2026-11-25T14:02:54.935Z",
+  "origin": "https://shadestrategy.com",
+  "pages": {
+    "/": {
+      "status": 200,
+      "location": null,
+      "title": "Window Treatment Marketing Experts | Shade Strategy",
+      "h1": "SmartMarketingFor WindowTreatmentBusinesses",
+      "description": "Grow your window treatment business with Shade Strategy — the leading marketing agency for blinds, shades, and shutter companies. Rank higher. Get more leads.",
+      "canonical": "https://shadestrategy.com",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Shade Strategy",
+          "url": "/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/689278c8747282532c0cfe0f_SHADE%20STRATEGY%20LOGO%20NEW%20WHITE%202.svg"
+          },
+          "description": "Transforming The Way Window Treatment Companies Do Marketing",
+          "telephone": "(615)795-7515",
+          "legalName": "Winc Solutions LLC, DBA Shade Strategy",
+          "sameAs": [
+            "https://www.facebook.com/shadestrategy",
+            "https://www.instagram.com/shadestrategy",
+            "https://twitter.com/shadestrategy",
+            "https://www.youtube.com/shadestrategy"
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "2"
+          },
+          "review": [
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "Todd D"
+              },
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5"
+              },
+              "reviewBody": "Shade Strategy built us an amazing site that not only looks great but converts visitors into consultations. They also helped automate our review process, boosting our online presence and credibility. Couldn't be happier!",
+              "itemReviewed": {
+                "@type": "Organization",
+                "name": "Shade Strategy"
+              }
+            },
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "Tom Shinn"
+              },
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5"
+              },
+              "reviewBody": "Cody with Shade Strategy built us a great looking site that actually brings in customers. They streamlined our backend systems and got us to the top of Google Maps, the phone's been ringing nonstop. Highly recommend!",
+              "itemReviewed": {
+                "@type": "Organization",
+                "name": "Shade Strategy"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/published/privacy-policy": {
+      "status": 200,
+      "location": null,
+      "title": "Shade Strategy Privacy Policy",
+      "h1": "Privacy Policy",
+      "description": "Your privacy matters to Shade Strategy. Review our Privacy Policy to see how we handle your personal and business information securely.",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/published/terms-and-conditions": {
+      "status": 200,
+      "location": null,
+      "title": "Shade Strategy Terms & Conditions",
+      "h1": "Terms & Conditions",
+      "description": "Review Shade Strategy’s Terms and Conditions outlining the rules, rights, and responsibilities for using our marketing services and website.",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/blog/chatgpt-for-window-treatment-businesses": {
+      "status": 200,
+      "location": null,
+      "title": "How Window Treatment Companies Can Use ChatGPT to Save 10 Hours a Week",
+      "h1": "How Window Treatment Companies Can Use ChatGPT to Save 10 Hours a Week",
+      "description": "Streamlining your business operations involves optimizing processes, reducing inefficiencies, and leveraging technology to enhance productivity and profitability.",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/blog/how-to-increase-revenue-for-your-window-treatment-business": {
+      "status": 200,
+      "location": null,
+      "title": "From Clicks to Clients: How Online Reviews Boost Sales for Window Treatment Retailers",
+      "h1": "From Clicks to Clients: How Online Reviews Boost Sales for Window Treatment Retailers",
+      "description": "Learn how online reviews influence buying decisions and proven strategies to generate more 5-star reviews that convert browsers into paying customers.",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/blog/how-to-start-a-window-treatment-business": {
+      "status": 200,
+      "location": null,
+      "title": "How to start A Window Treatment Business",
+      "h1": "How to start A Window Treatment Business",
+      "description": "Step-by-step guide to launching a window treatment business. Learn about licensing, suppliers, pricing, marketing, and getting your first clients.",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/blog/why-window-treatment-companies-need-seo": {
+      "status": 200,
+      "location": null,
+      "title": "Why Window Treatment Companies Need Local SEO",
+      "h1": "Why Window Treatment Companies Need Local SEO",
+      "description": "AI is changing how customers find window treatment companies. Local SEO isn't optional anymore—it's how you stay visible and win more leads.",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/services/local-search-seo": {
+      "status": 200,
+      "location": null,
+      "title": "Local SEO for Window Treatment Companies | Shade Strategy",
+      "h1": "SEO Marketing Specialized for Window Covering Businesses",
+      "description": "Specialized SEO for blinds, shutters, and shades companies. Dominate local search, attract qualified leads, and grow your window treatment business.",
+      "canonical": null,
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Local Search SEO for Window Treatment Services",
+          "description": "Specialized SEO for blinds, shutters, and shades companies. Dominate local search, attract qualified leads, and grow your window treatment business.",
+          "url": "/services/local-search-seo",
+          "inLanguage": "en",
+          "about": {
+            "@type": "Service",
+            "name": "Local Search SEO for Window Treatment Services",
+            "description": "Specialized SEO marketing services for blinds, shutters, shades, and window covering businesses to dominate local search and attract qualified leads.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Shade Strategy",
+              "legalName": "Winc Solutions LLC, DBA Shade Strategy",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/689278c8747282532c0cfe0f_SHADE%20STRATEGY%20LOGO%20NEW%20WHITE%202.svg"
+              },
+              "telephone": "(615)795-7515"
+            },
+            "serviceType": "SEO Marketing",
+            "areaServed": {
+              "@type": "Country",
+              "name": "United States"
+            },
+            "audience": {
+              "@type": "Audience",
+              "audienceType": "Window Treatment Businesses"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "SEO Services for Window Treatment Companies",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Local Market Domination",
+                    "description": "City-specific landing pages that target your actual service areas with real content that ranks."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Industry-Specific Content",
+                    "description": "Product comparisons, style guides, installation timelines - content people search for when ready to buy."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Competitor Analysis",
+                    "description": "Analysis of site speed, mobile optimization, and schema markup to help Google trust your site."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "GBP Optimization",
+                    "description": "Optimization of service areas, categories, posts, photos, and Q&A to drive calls."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Technical Foundation",
+                    "description": "Site speed, mobile optimization, and schema markup optimization."
+                  }
+                }
+              ]
+            }
+          },
+          "mainEntity": {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does a window covering SEO agency do?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A window covering SEO agency specializes in helping blinds, shutters, shades, and window covering companies get found online by customers actively searching for their products and services. Unlike general marketing agencies, we focus exclusively on the window covering industry, bringing insider knowledge from actually operating a successful window covering business. At Shade Strategy, we handle everything from local SEO and Google Business Profile optimization to content creation, keyword research, and answer engine optimization (AEO) so your business appears in ChatGPT, Google AI Overviews, and other AI search results."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How can SEO help my window treatment business get more customers?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SEO puts your window treatment business in front of customers at the exact moment they're searching for your services. When someone in your area searches 'custom plantation shutters near me' or 'motorized blinds installation,' proper SEO ensures your company appears at the top of search results instead of your competitors. Beyond traditional Google search, SEO now includes Answer Engine Optimization, which means your business can be recommended directly by ChatGPT, Perplexity, and Google's AI when potential customers ask questions."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why should window treatment companies hire a specialized SEO agency?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Generic SEO agencies don't understand your business. They'll optimize for generic terms like 'window treatments' without knowing that 'plantation shutters,' 'cellular shades,' and 'motorized blinds' attract completely different customer segments with different budgets and expectations. When you work with a specialized window treatment SEO agency, you're not just getting technical optimization—you're getting strategic business advice from someone who's successfully done what you're trying to do."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What's the difference between general SEO and window covering SEO?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Window covering SEO differs from general SEO in product complexity, local search dynamics, customer education requirements, competitive landscape understanding, and Answer Engine Optimization strategies specific to the window treatment industry."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does it take to see results from window treatment SEO?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Results typically come in phases: Quick wins in 30-60 days, building momentum in 3-4 months, and long-term dominance in 6-12 months."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "/services/ai-google-ads-for-window-treatment-businesses": {
+      "status": 200,
+      "location": null,
+      "title": "Google Ads for Window Treatment Companies | PPC Management for Blind & Shutter Businesses",
+      "h1": "PPC Management for Blind & Shutter Businesses",
+      "description": "AI-optimized Google Ads built to attract high-intent window treatment buyers. Precision targeting, smarter optimization, and accountable ad spend.",
+      "canonical": null,
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "AI Google Ads for Window Treatment Businesses",
+          "description": "AI-optimized Google Ads management service built to attract high-intent window treatment buyers with precision targeting, smarter optimization, and accountable ad spend.",
+          "url": "/services/ai-google-ads-for-window-treatment-businesses",
+          "provider": {
+            "@type": "Organization",
+            "name": "Shade Strategy",
+            "legalName": "Winc Solutions LLC",
+            "telephone": "(615)795-7515",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/6892774da6f78322748d2242_SHADE%20STRATEGY%20LOGO%20NEW%20WHITE.webp"
+            }
+          },
+          "serviceType": "PPC Management",
+          "areaServed": {
+            "@type": "Country",
+            "name": "United States"
+          },
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Window treatment businesses, blind and shutter retailers, dealers"
+          },
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Entry-Level",
+              "description": "For focused testing and controlled growth",
+              "priceCurrency": "USD",
+              "price": "1000",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1000",
+                "priceCurrency": "USD",
+                "unitText": "MONTH"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Growth Range",
+              "description": "Supports multiple products and geo-segments",
+              "priceCurrency": "USD",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "minPrice": "1500",
+                "maxPrice": "2500",
+                "priceCurrency": "USD",
+                "unitText": "MONTH"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Advanced Scaling",
+              "description": "Aggressive coverage across products and locations",
+              "priceCurrency": "USD",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "minPrice": "5000",
+                "priceCurrency": "USD",
+                "unitText": "MONTH"
+              }
+            }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Google Ads Features",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Product-Specific Campaigns",
+                  "description": "Separate campaigns for shutters, blinds, shades, and motorization with messaging aligned to buyer expectations"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Precision Geographic Targeting",
+                  "description": "Ads focus only on the cities and ZIP codes you want to work in"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Call Tracking Integration",
+                  "description": "Phone calls are tracked at the keyword level so optimization is based on real buyer actions"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Smarter Bid Management",
+                  "description": "Bids automatically adjust based on device, location, and real conversion signals"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Pattern-Based Targeting",
+                  "description": "Campaigns prioritize search behavior that aligns with past conversions"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Dynamic Budget Allocation",
+                  "description": "Budget flows toward campaigns and locations demonstrating stronger efficiency"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "/services/smart-websites": {
+      "status": 200,
+      "location": null,
+      "title": "Window Treatment Websites That Actually Convert | Custom Shade & Blind Website Design",
+      "h1": "Custom websites for the window treatment industry",
+      "description": "Websites built specifically for window treatment businesses. Not templates - custom designs that showcase your products and convert visitors into customers who actually buy.",
+      "canonical": null,
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Custom Window Treatment Website Design",
+          "url": "/services/smart-websites",
+          "description": "Websites built specifically for window treatment businesses. Not templates - custom designs that showcase your products and convert visitors into customers who actually buy.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Shade Strategy",
+            "legalName": "Winc Solutions LLC",
+            "telephone": "(615)795-7515",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/6892774da6f78322748d2242_SHADE%20STRATEGY%20LOGO%20NEW%20WHITE.webp"
+            }
+          },
+          "serviceType": "Website Design and Development",
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Window Treatment Businesses"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "United States"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Website Design Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Custom Design",
+                  "description": "Fully custom design tailored to your brand, products, and target customer"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Professional Copywriting",
+                  "description": "Content writing structured for clarity, persuasion, and search visibility"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Product & Service Pages",
+                  "description": "Dedicated pages for each product line and service, designed to educate visitors and support SEO"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "City/Service Area Pages",
+                  "description": "City-specific pages that target local searches"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Mobile Optimization",
+                  "description": "Mobile-first design ensuring perfect functionality on phones and tablets"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Speed Optimization",
+                  "description": "Fast loading times and performance optimization"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Basic SEO Setup",
+                  "description": "Technical foundation, proper structure, meta tags, schema markup"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Forms & Lead Capture",
+                  "description": "Quote forms, contact forms, consultation scheduling"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Google Analytics & Tracking",
+                  "description": "Proper tracking setup to monitor website performance"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Training",
+                  "description": "Training on how to update content, add blog posts, and manage your site"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "/windows-treatment-marketing-for-retailers": {
+      "status": 200,
+      "location": null,
+      "title": "Marketing for Window Treatment Retailers | Shade Strategy",
+      "h1": "Medium length hero heading goes here",
+      "description": "Marketing for window treatment & window covering retailers. Local SEO, Google Ads, automation. Get more customers with specialized marketing strategies.",
+      "canonical": null,
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Marketing for Window Treatment Retailers",
+          "url": "/windows-treatment-for-retailers",
+          "inLanguage": "en",
+          "description": "Digital marketing services for independent window treatment retailers. We help you rank higher in local search, automate your operations, and attract customers who value quality over price.",
+          "about": {
+            "@type": "Service",
+            "name": "Marketing Services for Window Treatment Retailers",
+            "provider": {
+              "@type": "Organization",
+              "name": "Shade Strategy",
+              "legalName": "Winc Solutions LLC",
+              "alternateName": "Shade Strategy",
+              "telephone": "(615)795-7515",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/689278c8747282532c0cfe0f_SHADE%20STRATEGY%20LOGO%20NEW%20WHITE%202.svg"
+              },
+              "description": "Transforming The Way Window Treatment Companies Do Marketing"
+            },
+            "serviceType": "Digital Marketing",
+            "areaServed": {
+              "@type": "Country",
+              "name": "United States"
+            },
+            "audience": {
+              "@type": "Audience",
+              "audienceType": "Window Treatment Retailers"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Marketing Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Local SEO for window treatment stores",
+                    "description": "Local SEO services help window treatment retailers rank for location-based searches such as plantation shutters near me, custom blinds, window coverings near me, or window treatment store."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Google Business Profile optimization",
+                    "description": "Google Business Profile optimization improves visibility in local map results. When potential customers search for window treatments in your area, proper GBP optimization increases the likelihood of appearing in the top three local results."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Website Development & Optimization",
+                    "description": "Professional website services designed for window treatment businesses. Our websites prioritize mobile responsiveness, fast loading speeds, and clear conversion paths for consultation bookings."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Google Ads Management",
+                    "description": "Google Ads provides immediate visibility in search results while organic SEO develops. We manage targeted advertising campaigns for window treatment and window covering retailers."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Review Generation & Management",
+                    "description": "Customer reviews influence purchasing decisions and local search rankings. Our review generation system automates the review request process following successful installations."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Business Automation & Workflow Systems",
+                    "description": "Business automation services reduce manual administrative tasks. We implement window treatment business software and automation systems for lead management, follow-up sequences, and customer communication."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Customer Support Implementation",
+                    "description": "AI assistant implementation provides automated customer support outside business hours. The system handles common inquiries about products, pricing, service areas, and appointment scheduling."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Business Consulting Services",
+                    "description": "Business consulting services provide strategic guidance on operations, marketing, and growth planning. Consulting topics include sales process optimization, pricing strategy, lead conversion improvement, and technology implementation."
+                  }
+                }
+              ]
+            }
+          },
+          "mainEntity": {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How is Shade Strategy different from other marketing agencies?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We exclusively serve the window treatment and window covering industry. Our founder operated a window treatment retail business for over a decade, so we understand the customer journey, sales process, and industry challenges from experience—not theory. We know what actually works to convert leads into customers."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What if I already have a website?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We can optimize your existing website or build a new one, depending on its current state. We'll also integrate it with the right window treatment business software (CRM, automation tools) to maximize efficiency. We'll audit what you have and recommend the most cost-effective approach."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much does this cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Investment varies based on market size, competition, and which services you need. Most retailers invest $1,500-5,000/month for comprehensive marketing (SEO + Ads + Automation). We can create a custom plan for your budget and goals."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will I have to manage any of this myself?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. We handle everything from strategy to execution to reporting. You'll get monthly updates on performance, but the day-to-day work is on us. Your job is to take consultations and close sales."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does it take to see results?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Google Ads and automation deliver immediate results. Local SEO typically shows meaningful rankings and traffic increases within 3-6 months. Review generation starts producing results within weeks."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you require long-term contracts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We offer both project-based work and month-to-month retainers. Most retailers see the best results with ongoing partnerships, but we're flexible based on your needs and budget."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you guarantee first-page rankings?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No legitimate agency can guarantee specific rankings (Google's algorithm is too complex). However, we can show you our track record of getting retailers to the first page for multiple keywords within 3-6 months."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What if I'm in a small market?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Perfect! Smaller markets are actually easier to dominate because there's less competition. You can often achieve top rankings faster and at lower cost than larger metro areas."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "/windows-treatment-for-Manufacturers": {
+      "status": 200,
+      "location": null,
+      "title": "Window Treatment Marketing Agency | Shade Strategy",
+      "h1": "Medium length hero heading goes here",
+      "description": "Specialized window treatment marketing for manufacturers & wholesalers. SEO, dealer onboarding, AI automation & more. Built by industry veterans.",
+      "canonical": null,
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Window Treatment Marketing Solutions for Manufacturers",
+          "description": "Specialized window treatment marketing for manufacturers & wholesalers. SEO, dealer onboarding, AI automation & more. Built by industry veterans.",
+          "url": "/windows-treatment-for-Manufacturers",
+          "inLanguage": "en",
+          "about": {
+            "@type": "Organization",
+            "name": "Shade Strategy",
+            "legalName": "Winc Solutions LLC",
+            "alternateName": "Winc Solutions LLC, DBA Shade Strategy",
+            "description": "The only marketing agency exclusively serving window treatment manufacturers, wholesalers, distributors and retailers.",
+            "telephone": "(615)795-7515",
+            "url": "/windows-treatment-for-Manufacturers",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/689278c8747282532c0cfe0f_SHADE%20STRATEGY%20LOGO%20NEW%20WHITE%202.svg"
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/693c52ca8a6ca7a4043d1fff_SS%20LOGO%20ICON.webp"
+            },
+            "slogan": "Transforming The Way Window Treatment Companies Do Marketing",
+            "knowsAbout": [
+              "Window Treatment Marketing",
+              "Window Covering Marketing",
+              "Window Treatment SEO",
+              "Dealer Onboarding",
+              "AI Automation for Window Treatment Businesses",
+              "Manufacturer Marketing",
+              "Wholesale Marketing"
+            ],
+            "areaServed": "US",
+            "serviceType": [
+              "SEO for Window Treatment Manufacturers",
+              "Smart Websites",
+              "Automated Dealer Onboarding",
+              "Dealer Portals",
+              "AI-Powered Customer Assistance",
+              "Re-Activation Campaigns",
+              "Brand Awareness Advertising",
+              "CRM & Automation Systems",
+              "Form Automations",
+              "Branding & Modernization",
+              "Multi-Location Marketing Solutions",
+              "Business Consulting"
+            ]
+          },
+          "mainEntity": {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How is Shade Strategy different from other marketing agencies?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We exclusively serve the window treatment industry. Our founder operated a window treatment business for over a decade, so we understand dealer relationships, manufacturing challenges, and wholesale dynamics from experience—not theory."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What if I already have a website?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We can work with your existing site, completely rebuild it, or create a hybrid approach. We'll audit what you have and recommend the most cost-effective path forward."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much does this cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Investment varies based on market size, competition, and which services you need. Most retailers invest $1,500-5,000/month for comprehensive marketing (SEO + Ads + Automation). We can create a custom plan for your budget and goals."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you help with both B2B (dealer recruitment) and B2C (helping our dealers market to consumers)?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely. We can help you attract dealers while also providing white-label marketing solutions you can offer to your dealer network."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does it take to see results?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SEO typically shows meaningful results in 3-6 months. Automation and website improvements deliver immediate efficiency gains. Advertising and re-activation campaigns can generate leads within weeks."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you integrate with our existing systems?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. We're experienced with most CRM platforms, ERPs, and business management systems common in wholesale distribution."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you work with manufacturers of all sizes?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Whether you're a regional supplier looking to expand or an established manufacturer competing against national brands, we tailor our services to your specific situation and goals."
+                }
+              }
+            ]
+          },
+          "review": [
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "Marcus Chen",
+                "jobTitle": "Owner"
+              },
+              "reviewBody": "We went from struggling to get calls to booking consultations every week. The system works.",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5"
+              }
+            },
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "Sarah Mitchell",
+                "jobTitle": "Manager"
+              },
+              "reviewBody": "Local search rankings changed everything. We're not competing on price anymore—we're the authority.",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5"
+              }
+            },
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "David Reeves",
+                "jobTitle": "Owner"
+              },
+              "reviewBody": "The automation saved us hours every week. More time selling, less time chasing leads.",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5"
+              }
+            },
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "Jennifer Walsh",
+                "jobTitle": "Showroom Manager"
+              },
+              "reviewBody": "Our reviews went from 12 to over 200 in six months. Customers trust us now.",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5"
+              }
+            },
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "Robert Kim",
+                "jobTitle": "Owner"
+              },
+              "reviewBody": "We finally have a marketing strategy that makes sense. Every dollar is tracked and measured.",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5"
+              }
+            },
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "Lisa Hernandez",
+                "jobTitle": "Owner"
+              },
+              "reviewBody": "Big-box stores can't touch us now. We own our local market.",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5"
+              }
+            },
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "Thomas Brooks",
+                "jobTitle": "Owner"
+              },
+              "reviewBody": "Three times more qualified leads. That's not marketing—that's a business transformation.",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/project/marketing-for-window-treatment-retailers": {
+      "status": 200,
+      "location": null,
+      "title": "Window Treatment Retailers",
+      "h1": "Smart Marketing For Window Treatment Retailers & Manufactures",
+      "description": "Specialized digital marketing services for independent window treatment retailers. Generate 3X more qualified showroom consultations, dominate local search rankings, and compete effectively against big-box stores and online discounters through proven SEO, paid advertising, and social media strategies.",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/project/marketing-for-window-treatment-manufacturers": {
+      "status": 200,
+      "location": null,
+      "title": "Window Treatment Manufacturers & Wholesalers",
+      "h1": "Smart Marketing For Window Treatment Retailers & Manufactures",
+      "description": "Recruit More Dealers, Strengthen Retail Partnerships, and Build Brand Recognition in the Trade Stop losing dealers to competitors with better marketing support. Our B2B marketing strategies help manufacturers and wholesalers expand dealer networks, increase pull-through sales, and position your brand as the preferred choice for retailers and designers.",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/project/marketing-for-window-treatment-installers": {
+      "status": 200,
+      "location": null,
+      "title": "Window Treatment Installers",
+      "h1": "Smart Marketing For Window Treatment Retailers & Manufactures",
+      "description": "Shade Strategy provides complete marketing systems for window treatment installers—including CRM, custom websites, dealer outreach, email campaigns, AI automations, and social media management. We only work with the window treatment industry, so we understand your business and know exactly what drives results.",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/published/contact-us": {
+      "status": 200,
+      "location": null,
+      "title": "Contact Us | Shade Strategy",
+      "h1": "Contact Shade Strategy",
+      "description": "Get in touch with Shade Strategy for window treatment marketing solutions. Call (615)795-7515 or email cody@shadestrategy.com for a free strategy call.",
+      "canonical": null,
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact Shade Strategy",
+          "url": "/published/contact-us",
+          "inLanguage": "en",
+          "description": "Contact Shade Strategy for window treatment marketing services including smart websites, AI automations, SEO, and Google Ads.",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Shade Strategy",
+            "legalName": "Winc Solutions LLC",
+            "alternateName": "Winc Solutions LLC, DBA Shade Strategy",
+            "description": "Transforming The Way Window Treatment Companies Do Marketing",
+            "telephone": "(615)795-7515",
+            "email": "cody@shadestrategy.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Franklin",
+              "addressRegion": "TN",
+              "addressCountry": "US"
+            },
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/6892774da6f78322748d2242_SHADE%20STRATEGY%20LOGO%20NEW%20WHITE.webp",
+              "caption": "Logo text reading 'SHADE STRATEGY' in bold, angular white font on a black background."
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "(615)795-7515",
+              "email": "cody@shadestrategy.com",
+              "contactType": "customer service"
+            }
+          }
+        }
+      ]
+    },
+    "/published/window-treatment-marketing-blog": {
+      "status": 200,
+      "location": null,
+      "title": "Window Treatment Marketing Tips & SEO Insights",
+      "h1": "Window Treatment Marketing Blog",
+      "description": "Discover marketing strategies, SEO tips, and automation tools to grow your window treatment business. Learn from industry experts at Shade Strategy.",
+      "canonical": null,
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Window Treatment Marketing Blog",
+          "description": "Marketing strategies, SEO tips, and automation tools to grow your window treatment business",
+          "url": "/published/window-treatment-marketing-blog",
+          "inLanguage": "en",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Shade Strategy",
+            "legalName": "Winc Solutions LLC",
+            "alternateName": "Shade Strategy",
+            "url": "/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/6892774da6f78322748d2242_SHADE%20STRATEGY%20LOGO%20NEW%20WHITE.webp"
+            },
+            "telephone": "(615)795-7515",
+            "description": "Transforming The Way Window Treatment Companies Do Marketing"
+          },
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "BlogPosting",
+                  "headline": "From Clicks to Clients: How Online Reviews Boost Sales for Window Treatment Retailers",
+                  "datePublished": "2025-10-17",
+                  "image": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/68a34bf2f2eebb13742a88ac_blog%201.webp",
+                  "inLanguage": "en"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "BlogPosting",
+                  "headline": "How to start A Window Treatment Business",
+                  "datePublished": "2025-10-17",
+                  "image": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/68a34bf2f2eebb13742a88ac_blog%201.webp",
+                  "inLanguage": "en"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "BlogPosting",
+                  "headline": "Why Window Treatment Companies Need Local SEO",
+                  "datePublished": "2025-10-17",
+                  "image": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/68a34bf2f2eebb13742a88ac_blog%201.webp",
+                  "inLanguage": "en",
+                  "keywords": "Learning"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "BlogPosting",
+                  "headline": "How Window Treatment Companies Can Use ChatGPT to Save 10 Hours a Week",
+                  "datePublished": "2025-10-17",
+                  "image": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/68a34bf2f2eebb13742a88ac_blog%201.webp",
+                  "inLanguage": "en"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "/published/window-treatment-industry-marketing": {
+      "status": 200,
+      "location": null,
+      "title": "Marketing and Ai for the Window Treatment Industry",
+      "h1": "Serving the entire Window Treatment industry",
+      "description": "Boost leads with expert SEO for window treatment businesses. We help dealers and manufacturers dominate local search and capture more customers.",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/published/thank-you": {
+      "status": 200,
+      "location": null,
+      "title": "Thank You | Shade Strategy Window Treatment Marketing",
+      "h1": "Thanks For Reaching Out!",
+      "description": "We appreciate you reaching out to Shade Strategy. Our team will contact you shortly to help grow your window treatment business.",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/utility-pages/coming-soon": {
+      "status": 200,
+      "location": null,
+      "title": "Shade-strategy-tools-coming-soon",
+      "h1": "Coming soon!",
+      "description": "Shade Strategy is launching powerful marketing and automation tools for window treatment companies. Check back soon for updates!",
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/pricing": {
+      "status": 200,
+      "location": null,
+      "title": "Pricing",
+      "h1": null,
+      "description": null,
+      "canonical": null,
+      "jsonLd": []
+    },
+    "/services/workflow-automations-for-window-treatment-businesses": {
+      "status": 200,
+      "location": null,
+      "title": "Workflow Automation for Window Treatment Companies | Business Systems for Blind & Shutter Retailers",
+      "h1": "Workflow Automation Marketing for Window Treatment Businesses",
+      "description": "Workflow automations that handle repetitive tasks in your window treatment business - appointment reminders, quote follow-ups, review generation, AI review responses, and form processing. More time selling, less time on admin work.",
+      "canonical": null,
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Workflow Automation Marketing for Window Treatment Businesses",
+          "description": "Workflow automations that handle repetitive tasks in your window treatment business - appointment reminders, quote follow-ups, review generation, AI review responses, and form processing. More time selling, less time on admin work.",
+          "url": "/services/workflow-automations-for-window-treatment-businesses",
+          "provider": {
+            "@type": "Organization",
+            "name": "Shade Strategy",
+            "legalName": "Winc Solutions LLC",
+            "telephone": "(615)795-7515",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://cdn.prod.website-files.com/68925bac1fc56d13e32dae65/689278c8747282532c0cfe0f_SHADE%20STRATEGY%20LOGO%20NEW%20WHITE%202.svg"
+            }
+          },
+          "serviceType": "Marketing Automation",
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Window Treatment Companies"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "United States"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Workflow Automation Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Form Automations",
+                  "description": "Website forms, quote requests, and consultation bookings are automatically captured and routed. No more manual data entry."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Measurement Reminders",
+                  "description": "Scheduled measurements trigger confirmation reminders. Reduces no-shows and keeps the calendar running smoothly."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Installation Reminders",
+                  "description": "Automated reminders before installs. Confirms timing, provides prep instructions, and reduces last-minute cancellations."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Quote Follow-Up Sequences",
+                  "description": "Automated messages go out at strategic intervals to close more sales. Stop leaving money on the table because you forgot to follow up."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Google Review Automation",
+                  "description": "Automatically request Google reviews after service completion. Streamlines your review collection process to build a stronger online reputation."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Review Responses",
+                  "description": "AI drafts professional responses matching your brand voice (thank-yous or conflict resolution). You just approve and post."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
