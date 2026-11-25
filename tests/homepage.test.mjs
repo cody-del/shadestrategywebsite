@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { listPages } from '../scripts/pages.mjs';
 
@@ -17,17 +17,30 @@ test('the homepage leads with proof and individual services', () => {
   assert.ok(home.indexOf('class="hero"') < home.indexOf('id="proof"'));
 });
 
-test('the proof strip repeats what the Results page publishes and links to it', () => {
-  const proof = plain(section('proof'));
-  const results = plain(read('results/index.html'));
-  for (const name of ['Tom Shinn', 'The Shutter Factory', 'Todd D.', 'Five Day Plantation Shutters Largo']) {
-    assert.ok(proof.includes(name), name);
-    assert.ok(results.includes(name), `${name} is on the Results page`);
+// The two quotes and four logos the Webflow homepage already published (Emil OK'd showing them, 2026-11-25).
+const QUOTES = [
+  ['Cody with Shade Strategy built us a great looking site that actually brings in customers. They streamlined our backend systems and got us to the top of Google Maps, the phone’s been ringing nonstop. Highly recommend!', 'Tom Shinn', 'The Shutter Factory'],
+  ['Shade Strategy built us an amazing site that not only looks great but converts visitors into consultations. They also helped automate our review process, boosting our online presence and credibility. Couldn’t be happier!', 'Todd D.', 'Five Day Plantation Shutters'],
+];
+const CLIENT_LOGOS = ['The Shutter Factory', 'Beautiful Blinds and Shades', 'Isla Shades', '5 Day Plantation Shutters'];
+
+test('the proof strip shows the published client quotes word for word, with names', () => {
+  const proof = section('proof');
+  const text = plain(proof);
+  for (const [quote, name, business] of QUOTES) {
+    assert.ok(text.includes(quote), quote.slice(0, 40));
+    assert.ok(text.includes(name) && text.includes(business), name);
   }
-  assert.ok(proof.includes('Google Maps') && results.includes('Google Maps'));
-  assert.ok(proof.includes('review requests') && results.includes('review requests'));
-  assert.match(section('proof'), /href="\.\/results\/"/);
-  assert.ok(!/[“”"]\s*The new website/.test(proof), 'summaries, not invented quotes');
+  assert.equal((proof.match(/<blockquote/g) || []).length, 2);
+  assert.match(proof, /href="\.\/results\/"/);
+});
+
+test('the proof strip shows the four client logos, each named, from this site', () => {
+  const proof = section('proof');
+  for (const client of CLIENT_LOGOS) {
+    assert.match(proof, new RegExp(`<img src="\\./assets/clients/[a-z0-9-]+\\.webp" width="\\d+" height="\\d+" alt="${client}"`), client);
+  }
+  for (const m of proof.matchAll(/src="\.\/(assets\/clients\/[^"]+)"/g)) assert.ok(existsSync(root + m[1]), m[1]);
 });
 
 test('Two Ways One System names Individual Services first', () => {
@@ -99,4 +112,25 @@ test('the terms are linked in every footer and beside the SMS opt-in', () => {
     assert.match(footer, /<a href="[^"]*published\/terms-and-conditions">Terms and Conditions<\/a>/, page);
   }
   assert.match(read('strategy-call/index.html'), /<p class="ss-privacy">[^]*?privacy-policy">Privacy Policy<\/a>[^<]*<a href="[^"]*terms-and-conditions">Terms and Conditions<\/a>/);
+});
+
+test('the headline says what dealers get, keeping the search phrase', () => {
+  assert.match(home, /<h1 id="hero-title">Window treatment marketing that books more consultations\.<\/h1>/);
+  assert.match(home, /<title>Window Treatment Marketing Agency \| Shade Strategy<\/title>/);
+});
+
+test('every footer offers the phone number as a tap-to-call link', () => {
+  for (const page of listPages(root)) {
+    const html = read(page);
+    const footer = html.match(/<footer class="site-footer">[\s\S]*?<\/footer>/)?.[0];
+    if (!footer) continue;
+    assert.ok(footer.includes('<a href="tel:+16157957515">(615) 795-7515</a>'), page);
+  }
+  assert.ok(read('strategy-call/index.html').includes('or call <a href="tel:+16157957515">(615) 795-7515</a>'));
+});
+
+test('the SMS consent follows the current website’s wording', () => {
+  const call = read('strategy-call/index.html');
+  assert.ok(call.includes('<span>I agree to receive SMS messages from Shade Strategy related to my inquiries, appointments, and services. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help. Consent isn’t a condition of purchase.</span>'));
+  assert.match(call, /<input type="checkbox" id="ss-lf-smsAgreed" name="smsAgreed" value="yes">/, 'unchecked and optional');
 });
