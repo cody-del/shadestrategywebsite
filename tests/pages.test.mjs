@@ -149,7 +149,7 @@ test('the homepage preview forms are replaced by strategy-call links', () => {
   assert.ok(!html.includes('contact-preview.js'));
   assert.ok(!html.includes('This is a preview'));
   assert.ok(!existsSync(root + 'contact-preview.js'));
-  for (const id of ['contact', 'inquiry']) {
+  for (const id of ['inquiry']) {
     const section = html.match(new RegExp(`<section[^>]*id="${id}"[\\s\\S]*?</section>`))[0];
     assert.match(section, /<a class="cta[^"]*" href="\.\/strategy-call\/">Book a strategy call/, id);
   }

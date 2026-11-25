@@ -5,6 +5,19 @@
   font-weight: 400 700;
   font-display: swap;
 }
+/* Arial sized to Hanken Grotesk (regular 100.7% measured; bold 96.8%, tuned so the headline wraps the same at 240–1440px), so the font swap doesn't re-wrap headings */
+@font-face {
+  font-family: "Hanken Grotesk Fallback";
+  src: local("Arial");
+  size-adjust: 100.7%;
+  font-weight: 400 500;
+}
+@font-face {
+  font-family: "Hanken Grotesk Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT");
+  size-adjust: 96.8%;
+  font-weight: 600 700;
+}
 
 :root {
   color-scheme: light;
@@ -15,7 +28,7 @@
   --shade-gradient: linear-gradient(90deg, #8651ef, #7995ea 52%, #58d5dc);
   --edge: clamp(.75rem, 2.5vw, 2.5rem);
   --announcement-height: 1.75rem;
-  font-family: "Hanken Grotesk", "Helvetica Neue", sans-serif;
+  font-family: "Hanken Grotesk", "Hanken Grotesk Fallback", "Helvetica Neue", sans-serif;
   color: var(--ink);
   background: var(--paper);
 }
@@ -163,83 +176,20 @@ button, summary { cursor: pointer; }
 .menu-toggle, .mobile-booking { display: none; }
 
 .nav-booking { justify-self: end; }
-.site-nav .cta, .contact-strip .cta { border-color: #aaa; }
+.site-nav .cta { border-color: #aaa; }
 
 .nav-announcement {
-  display: block;
-  inline-size: 100%;
   max-inline-size: 92rem;
-  block-size: var(--announcement-height);
-  margin-inline: auto;
-  padding: 0;
-  border: 0;
-  background: transparent;
+  min-block-size: var(--announcement-height);
+  margin: 0 auto;
+  padding: .3rem var(--edge);
   color: var(--muted);
   font-size: .875rem;
   font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
 }
-.nav-announcement:disabled {
-  block-size: auto;
-  min-block-size: var(--announcement-height);
-  cursor: default;
-  opacity: 1;
-}
-.announcement-window {
-  --fade-edge: clamp(1rem, 3vw, 2.5rem);
-  position: relative;
-  display: block;
-  block-size: 100%;
-  container-type: inline-size;
-  overflow: clip;
-  mask-image: linear-gradient(to right, transparent, #000 var(--fade-edge), #000 calc(100% - var(--fade-edge)), transparent);
-}
-.announcement-copy {
-  --announcement-gap: clamp(.9rem, 2vw, 1.65rem);
-  position: absolute;
-  inset-block: 0;
-  inset-inline-start: 50%;
-  display: flex;
-  align-items: center;
-  gap: var(--announcement-gap);
-  inline-size: max-content;
-  text-transform: uppercase;
-  transform: translateX(-50%);
-}
-.announcement-copy > span {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--announcement-gap);
-  white-space: nowrap;
-}
-.announcement-copy > span + span::before {
-  content: "";
-  inline-size: 3px;
-  block-size: 3px;
-  border-radius: 50%;
-  background: currentColor;
-  opacity: .55;
-}
-.nav-announcement:disabled .announcement-copy {
-  position: static;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: .2rem .85rem;
-  inline-size: auto;
-  min-block-size: var(--announcement-height);
-  padding-block: .2rem;
-  transform: none;
-}
-.nav-announcement:disabled .announcement-copy > span { gap: .85rem; }
-@media (prefers-reduced-motion: no-preference) {
-  .nav-announcement:not(:disabled) .announcement-copy {
-    animation: announcement-scroll 36s linear -8s infinite;
-  }
-  .nav-announcement[aria-pressed="true"] .announcement-copy { animation-play-state: paused; }
-}
-@keyframes announcement-scroll {
-  from { transform: translateX(50cqw); }
-  to { transform: translateX(calc(-50cqw - 100%)); }
-}
+.nav-announcement a { color: var(--ink); text-underline-offset: .2em; }
 
 .hero {
   --tile: clamp(2.85rem, 7.2vw, 6.3rem);
@@ -349,26 +299,6 @@ button, summary { cursor: pointer; }
   }
 }
 
-.contact-strip {
-  background: var(--nav);
-  color: var(--paper);
-  padding: clamp(1.5rem, 3vw, 2.25rem) var(--edge);
-}
-.contact-strip :focus-visible { outline-color: #b2c8ff; }
-.contact-strip-inner {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(1rem, 3vw, 2.75rem);
-  max-inline-size: 92rem;
-  margin-inline: auto;
-}
-.contact-strip h2 {
-  margin: 0;
-  font-size: clamp(1.5rem, 2.65vw, 2.5rem);
-  line-height: 1.1;
-  letter-spacing: -.055em;
-}
 .contact-fields {
   display: grid;
   grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) minmax(0, 1.35fr) auto;
@@ -624,15 +554,15 @@ button, summary { cursor: pointer; }
 .tool-art {
   display: grid;
   place-items: center;
-  min-block-size: clamp(7rem, 12vw, 12rem);
-  margin-block-end: 1.15rem;
+  min-block-size: clamp(5rem, 7vw, 7.5rem);
+  margin-block-end: 1rem;
   border-radius: .7rem;
   background:
     linear-gradient(125deg, #f7f7f7 25%, #f7f7f7e6 55%, #f7f7f746 100%),
     conic-gradient(#dcdcdc 25%, #f4f4f4 0 50%, #dcdcdc 0 75%, #f4f4f4 0) 0 0 / 3.5rem 3.5rem;
 }
 .tool-art svg {
-  inline-size: min(100%, 12rem);
+  inline-size: min(100%, 8.5rem);
   block-size: auto;
   margin: 0;
   stroke: none;
@@ -773,20 +703,6 @@ button, summary { cursor: pointer; }
   border-block-start: 1px solid #e5e5e5;
   background: #f7f7f7;
 }
-.contact-call {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: .75rem 1.5rem;
-  min-inline-size: 0;
-}
-.contact-call p {
-  margin: 0;
-  max-inline-size: 38rem;
-  font-size: 1.05rem;
-  color: #ddd;
-}
 .inquiry-call {
   display: grid;
   justify-items: center;
@@ -841,8 +757,7 @@ button, summary { cursor: pointer; }
   .tool-catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .offerings-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .offerings-grid .offering:last-child:nth-child(odd) { grid-column: 1 / -1; }
-  .contact-strip-inner { grid-template-columns: minmax(0, 1fr); }
-  .site-nav {
+    .site-nav {
     min-block-size: 4.125rem;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: .25rem .75rem;
@@ -917,8 +832,7 @@ button, summary { cursor: pointer; }
     margin-block-end: 0;
   }
   .tool-bundle > .cta { max-inline-size: 100%; }
-  .contact-strip { padding-inline: 1.25rem; }
-  .contact-fields { grid-template-columns: minmax(0, 1fr); }
+    .contact-fields { grid-template-columns: minmax(0, 1fr); }
   .contact-fields button { justify-self: start; }
   .hero { padding-block-start: clamp(4.25rem, 12svh, 6.25rem); padding-inline: 1.25rem; }
   .hero h1 { line-height: 1.01; letter-spacing: -.058em; }
@@ -1523,6 +1437,7 @@ button, summary { cursor: pointer; }
   padding: clamp(2rem, 5vw, 3.5rem) max(var(--edge), 1.25rem) clamp(3rem, 7vw, 5.5rem);
   font-size: 1.125rem;
   line-height: 1.7;
+  overflow-wrap: break-word;
 }
 .article-body > :first-child { margin-block-start: 0; }
 .article-body h2,
@@ -1546,10 +1461,6 @@ button, summary { cursor: pointer; }
 .legal-page .article-body { font-size: 1.05rem; }
 
 /* Homepage contact strip and closing section link to the strategy call */
-.contact-strip .cta { justify-self: end; }
-@media (max-width: 63rem) {
-  .contact-strip .cta { justify-self: start; }
-}
 
 /* Individual service prices lead; Full Service tiles stay quieter outside the Full Service page */
 .offering-price {
@@ -1593,3 +1504,40 @@ button, summary { cursor: pointer; }
   .cta:active,
   .ss-lf-button:active:not(:disabled) { transform: none; }
 }
+
+/* Proof strip: what retailers reported, at the bottom of the first screen */
+.proof-strip {
+  padding: clamp(1.5rem, 3vw, 2.25rem) var(--edge);
+  background: var(--nav);
+  color: var(--paper);
+}
+.proof-strip :focus-visible { outline-color: #b2c8ff; }
+.proof-strip-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem clamp(1.5rem, 3vw, 2.75rem);
+  max-inline-size: 92rem;
+  margin-inline: auto;
+}
+.proof-strip h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -.05em;
+}
+.proof-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem clamp(1.25rem, 2.5vw, 2.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.proof-list p { margin: 0; color: #e4e4e4; font-size: .95rem; line-height: 1.5; }
+.proof-list .proof-source { margin-block-start: .35rem; color: #bdbdbd; font-size: .85rem; font-weight: 700; }
+.proof-strip .action-link { color: var(--paper); white-space: nowrap; }
+@media (max-width: 63rem) {
+  .proof-strip-inner, .proof-list { grid-template-columns: minmax(0, 1fr); }
+}
+.offering-price-note { margin: .3rem 0 0; color: var(--muted); font-size: .85rem; }

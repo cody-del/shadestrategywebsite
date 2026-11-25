@@ -22,9 +22,20 @@ test('redirects file has one 301 line per old address', () => {
   for (const line of file.trim().split('\n')) assert.match(line, /^\/\S+ \/\S* 301$/);
 });
 
-test('non-indexable builds send noindex on every path', () => {
-  assert.equal(headersFile(false), '/*\n  X-Robots-Tag: noindex\n');
-  assert.equal(headersFile(true), '');
+const SECURITY = [
+  'X-Content-Type-Options: nosniff',
+  'Referrer-Policy: strict-origin-when-cross-origin',
+  'X-Frame-Options: SAMEORIGIN',
+  'Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()',
+];
+
+test('every build sends the security headers; only non-indexable builds add noindex', () => {
+  for (const indexable of [true, false]) {
+    const file = headersFile(indexable);
+    assert.ok(file.startsWith('/*\n'), 'applies to every path');
+    for (const header of SECURITY) assert.ok(file.includes(`  ${header}\n`), header);
+    assert.equal(file.includes('X-Robots-Tag: noindex'), !indexable);
+  }
 });
 
 test('robots.txt allows crawling and points to the sitemap', () => {

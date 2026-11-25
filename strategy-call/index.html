@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" href="/assets/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <meta name="description" content="Answer a few quick questions about your window treatment business and book a strategy call with Cody at Shade Strategy.">
   <title>Book a strategy call | Shade Strategy</title>
   <link rel="canonical" href="https://shadestrategy.com/strategy-call/">
-  <link rel="stylesheet" href="../styles.css?v=webflow-exit-5">
+  <link rel="stylesheet" href="../styles.css?v=homepage-order-1">
   <script src="../navigation.js?v=site-pages" defer></script>
   <script src="/analytics.js" defer></script>
   <script src="steps.js?v=steps" defer></script>
@@ -45,7 +46,7 @@
   </style>
   <style>
   .strategy-page{background:linear-gradient(to bottom,#fff 0,transparent 22rem),linear-gradient(90deg,#f4eefc,#edf8fa)}
-  .strategy-layout{display:grid;gap:clamp(1.5rem,4vw,3.5rem);max-width:74rem;margin:0 auto;padding:clamp(1.75rem,5vw,4.5rem) max(var(--edge),1rem) clamp(3rem,7vw,6rem);align-items:start}
+  .strategy-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(1.5rem,4vw,3.5rem);max-width:74rem;margin:0 auto;padding:clamp(1.75rem,5vw,4.5rem) max(var(--edge),1rem) clamp(3rem,7vw,6rem);align-items:start}
   @media (min-width:960px){.strategy-layout{grid-template-columns:minmax(0,1fr) minmax(0,38rem)}.strategy-intro{position:sticky;top:8rem}}
   .strategy-eyebrow{margin:0 0 .75rem;font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5b3fc4}
   .strategy-intro h1{margin:0;font-size:clamp(2.25rem,5vw,3.75rem);line-height:1;letter-spacing:-.06em;text-wrap:balance}
@@ -83,12 +84,13 @@
   .strategy-form .ss-lf .ss-lf-input::placeholder{color:#8a8f99}
   .strategy-form .ss-lf .ss-lf-input:hover{border-color:#8a8f99}
   .strategy-form .ss-choices{display:grid;gap:.625rem;grid-template-columns:1fr}
-  .strategy-form .ss-choices-compact,.strategy-form .ss-choices-three{grid-template-columns:1fr 1fr}
+  .strategy-form .ss-choices-compact,.strategy-form .ss-choices-three{grid-template-columns:minmax(0,1fr)}
+  @media (min-width:360px){.strategy-form .ss-choices-compact,.strategy-form .ss-choices-three{grid-template-columns:repeat(2,minmax(0,1fr))}}
   .strategy-form .ss-choices-three{grid-template-columns:repeat(3,1fr)}
   @media (min-width:520px){.strategy-form .ss-choices{grid-template-columns:1fr 1fr}.strategy-form .ss-choices-stack{grid-template-columns:1fr}.strategy-form .ss-choices-three{grid-template-columns:repeat(3,1fr)}}
-  .strategy-form .ss-choices .ss-lf-opt{min-height:56px;padding:.75rem 1rem;border:1px solid var(--ss-lf-line);border-radius:14px;background:#fff;font-weight:500;transition:border-color .15s ease,background-color .15s ease,box-shadow .15s ease,transform .1s ease}
+  .strategy-form .ss-choices .ss-lf-opt{min-width:0;overflow-wrap:break-word;min-height:56px;padding:.75rem 1rem;border:1px solid var(--ss-lf-line);border-radius:14px;background:#fff;font-weight:500;transition:border-color .15s ease,background-color .15s ease,box-shadow .15s ease,transform .1s ease}
   .strategy-form .ss-choices-small .ss-lf-opt{min-height:48px;padding:.5rem .875rem}
-  .strategy-form .ss-choices .ss-lf-opt:hover{border-color:var(--ink);background:#fafafa}
+  .ss-choices .ss-lf-opt:hover{border-color:var(--ink);background:#fafafa}
   .strategy-form .ss-choices .ss-lf-opt:active{transform:scale(.99)}
   .strategy-form .ss-choices .ss-lf-opt:has(input:checked){border-color:var(--ink);background:#f4f1fd;box-shadow:inset 0 0 0 1px var(--ink);font-weight:700}
   .strategy-form .ss-choices .ss-lf-opt input:focus-visible{outline:none}
@@ -154,16 +156,7 @@
       </ul>
       <a class="cta nav-booking" href="../strategy-call/">Book a strategy call <span aria-hidden="true">→</span></a>
     </nav>
-    <button class="nav-announcement" type="button" disabled>
-      <span class="announcement-window">
-        <span class="announcement-copy">
-          <span>AI Google Ads</span>
-          <span>Individual services, no package needed.</span>
-          <span>AI Visualizer now in beta</span>
-          <span>Individual services, no package needed.</span>
-        </span>
-      </span>
-    </button>
+    <p class="nav-announcement">Individual services, no package needed. <a href="/services/">See services</a></p>
   </header>
     <main id="main-content" class="strategy-page">
     <section class="strategy-layout" aria-labelledby="page-title">
@@ -321,7 +314,7 @@
           <p class="ss-lf-alert" id="ss-lf-alert" data-alert aria-live="polite"></p>
           <div class="ss-step-nav ss-step-nav-final">
             <button class="ss-lf-button" type="submit" data-submit disabled>See next steps</button>
-            <p class="ss-privacy">We use your answers only to follow up on your inquiry. <a href="../published/privacy-policy">Privacy Policy</a></p>
+            <p class="ss-privacy">We use your answers only to follow up on your inquiry. <a href="../published/privacy-policy">Privacy Policy</a> · <a href="../published/terms-and-conditions">Terms and Conditions</a></p>
           </div>
         </section>
           </div>
@@ -352,6 +345,7 @@
             <li><a href="../contact/">Contact</a></li>
             <li><a href="mailto:cody@shadestrategy.com">cody@shadestrategy.com</a></li>
             <li><a href="../published/privacy-policy">Privacy Policy</a></li>
+            <li><a href="../published/terms-and-conditions">Terms and Conditions</a></li>
           </ul>
         </div>
         <div>

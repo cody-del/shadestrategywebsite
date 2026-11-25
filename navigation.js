@@ -62,32 +62,3 @@ isMobile.addEventListener("change", () => {
   setMenu(false);
   if (isMobile.matches && focusWasInMenu) toggle.focus();
 });
-
-const announcement = document.querySelector(".nav-announcement");
-const announcementText = Array.from(
-  announcement.querySelectorAll(".announcement-copy > span"),
-  (item) => item.textContent.trim().replace(/\.$/, ""),
-).join(". ");
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-function updateAnnouncementMotion() {
-  announcement.disabled = reducedMotion.matches;
-  if (reducedMotion.matches) {
-    announcement.removeAttribute("aria-label");
-    announcement.removeAttribute("aria-pressed");
-    announcement.removeAttribute("title");
-    return;
-  }
-  announcement.setAttribute("aria-label", `${announcementText}. Pause scrolling announcement`);
-  announcement.setAttribute("aria-pressed", "false");
-  announcement.title = "Pause scrolling announcement";
-}
-
-announcement.addEventListener("click", () => {
-  const paused = announcement.getAttribute("aria-pressed") !== "true";
-  announcement.setAttribute("aria-pressed", String(paused));
-  announcement.title = paused ? "Resume scrolling announcement" : "Pause scrolling announcement";
-});
-
-reducedMotion.addEventListener("change", updateAnnouncementMotion);
-updateAnnouncementMotion();
