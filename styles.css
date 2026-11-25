@@ -1314,7 +1314,7 @@ button, summary { cursor: pointer; }
 .service-menu .offering .action-link { margin-block-start: .75rem; color: var(--ink); }
 .offering-group { margin-block-start: clamp(2rem, 4vw, 3rem); }
 .offering-group:first-child { margin-block-start: 0; }
-.offering-group > h3 {
+.offering-group > .offering-group-label {
   margin: 0 0 1rem;
   color: #51367e;
   font-size: .8rem;
