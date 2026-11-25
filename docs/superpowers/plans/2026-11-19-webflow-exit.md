@@ -21,7 +21,7 @@
 - `ebook/` stays `noindex` and out of the sitemap (it is the post-signup download page).
 - Push, merge, deploy, Netlify setting changes and test leads only with Emil's explicit OK. Emil (or whoever holds Namecheap) makes the DNS changes; Claude never logs in there.
 - Every page that links `styles.css` uses the same `?v=` tag; bump it on every page whenever `styles.css` changes.
-- Tests run with `node --test tests/`; no npm dependencies.
+- Tests run with `node --test 'tests/*.test.mjs'`; no npm dependencies.
 
 ## Review Focus
 
@@ -203,7 +203,7 @@ Run this while Webflow is still live.
   - Add `blog/` and `published/` to the copied directories. `full-service/` is already there from PR #4.
   - Write `_redirects`, `_headers`, `robots.txt` and `sitemap.xml` into `preview-build/`.
   - Remove `contact-preview.js` from the copied files.
-- [ ] **Step 4: Run** `node --test tests/` and `node scripts/build-preview.mjs`. Expected: all PASS. `preview-build/_headers` contains `noindex` (no Netlify env locally), and `preview-build/sitemap.xml` lists 25 URLs: 19 directory pages (no `/ebook/`), 2 legal and 4 blog. Recount if pages were added since.
+- [ ] **Step 4: Run** `node --test 'tests/*.test.mjs'` and `node scripts/build-preview.mjs`. Expected: all PASS. `preview-build/_headers` contains `noindex` (no Netlify env locally), and `preview-build/sitemap.xml` lists 25 URLs: 19 directory pages (no `/ebook/`), 2 legal and 4 blog. Recount if pages were added since.
 - [ ] **Step 5: Commit** `git commit -m "Generate redirects, headers, sitemap and robots at build time"`
 
 ### Task 6: Page heads, links, forms and homepage schema
@@ -228,7 +228,7 @@ Run this while Webflow is still live.
     - `logo` pointing to a file under `https://shadestrategy.com/assets/`
     - `sameAs` equal to the Webflow baseline's `sameAs` for `/`
     - no `aggregateRating`
-  - **Title:** the homepage title stays `Window Treatment Marketing | Shade Strategy`.
+  - **Title:** the homepage title is `Window Treatment Marketing Agency | Shade Strategy` (see the spec).
 - [ ] **Step 2: Run** `node --test tests/pages.test.mjs`. Expected: FAIL.
 - [ ] **Step 3: Apply the changes.**
   - Turn absolute `https://shadestrategy.com/...` links into relative ones for that page's depth.
@@ -237,7 +237,7 @@ Run this while Webflow is still live.
   - Replace both homepage `<form class="contact-form">` blocks with a `cta` link "Book a strategy call →" to `./strategy-call/`. Keep each section's heading.
   - Remove the `contact-preview.js` script tag and file.
   - Add the Organization JSON-LD in `<head>`.
-- [ ] **Step 4: Run** `node --test tests/` and `node scripts/build-preview.mjs`. Expected: all PASS, and the build succeeds.
+- [ ] **Step 4: Run** `node --test 'tests/*.test.mjs'` and `node scripts/build-preview.mjs`. Expected: all PASS, and the build succeeds.
 - [ ] **Step 5: Commit** `git commit -m "Make the site indexable and drop Webflow links"`
 
 ### Task 7: URL checker
@@ -266,7 +266,7 @@ Run this while Webflow is still live.
   - A relative `Location` (`/full-service/`) passes.
 - [ ] **Step 2: Run** `node --test tests/check-urls.test.mjs`. Expected: FAIL.
 - [ ] **Step 3: Implement `checkUrl` and the CLI.**
-- [ ] **Step 4: Run** `node --test tests/`. Expected: PASS. Then run against Netlify's local server, which applies `_redirects` and `_headers`:
+- [ ] **Step 4: Run** `node --test 'tests/*.test.mjs'`. Expected: PASS. Then run against Netlify's local server, which applies `_redirects` and `_headers`:
   - Start `netlify serve --port 8888` (background).
   - Run `node scripts/check-urls.mjs http://localhost:8888`.
   - Expected: exit 0. Without `--indexable`, every page sends `noindex`, which is correct locally.

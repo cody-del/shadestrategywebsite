@@ -165,7 +165,9 @@ test('the ebook signup form still posts to Netlify Forms', () => {
 
 test('the homepage keeps its title and carries the Organization schema over', () => {
   const html = read('index.html');
-  assert.match(html, /<title>Window Treatment Marketing \| Shade Strategy<\/title>/);
+  // "Agency" carries over the old /published/window-treatment-industry-marketing page's
+  // page-1 ranking for "window treatment marketing agency" (OpenSEO audit 2026-11-21); that page now 301s here.
+  assert.match(html, /<title>Window Treatment Marketing Agency \| Shade Strategy<\/title>/);
   const orgs = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
     .map((m) => JSON.parse(m[1]))
     .filter((b) => b['@type'] === 'Organization');

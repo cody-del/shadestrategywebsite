@@ -85,7 +85,7 @@ The first five come from the README table. Redirects live in `netlify.toml` and 
 
 - **Strategy-call questionnaire:** no change. Its Turnstile widget and the lead-form allowed origins already include shadestrategy.com and www.
 - **Ebook signup** (Netlify Forms, `ebook-signup`): turn on form detection on the Netlify site and send one test signup before the domain switch.
-- **The two homepage inquiry forms:** today they show "This is a preview. Your inquiry has not been sent." *Claude's proposal:* replace both with a "Book a strategy call" button that goes to `/strategy-call/`. That keeps one tested path for leads, with nothing new on the server. **Emil to confirm.**
+- **The two homepage inquiry forms:** today they show "This is a preview. Your inquiry has not been sent." *Claude's proposal:* replace both with a "Book a strategy call" button that goes to `/strategy-call/`. That keeps one tested path for leads, with nothing new on the server. **Confirmed by Emil 2026-11-25 (shipped in PR #5).**
 
 ### Ready for search
 
@@ -108,7 +108,7 @@ What the old site has today (OpenSEO, 2026-11-18):
 Safeguards:
 1. **Search Console Domain property before anything else.** Emil adds it (one DNS TXT record at Namecheap). Search Console then shows up to 16 months of history. Export pages and query+page data into `migration/` and confirm that no old inner page gets clicks. If one does, its redirect is revisited.
 2. **Baseline file.** Save `migration/seo-baseline.json`, with every old URL's status, title, H1, meta description, canonical and JSON-LD, before the switch.
-3. **The homepage keeps its title, schema and links.** The new title stays "Window Treatment Marketing | Shade Strategy". Add Organization JSON-LD to the new homepage, carrying over name, legalName "Winc Solutions LLC, DBA Shade Strategy", telephone (615) 795-7515, sameAs and a logo hosted on this site. Drop the self-written aggregateRating, which Google ignores for an organization's own reviews. The new site has no JSON-LD on any page today.
+3. **The homepage keeps its title, schema and links.** The new title is "Window Treatment Marketing Agency | Shade Strategy" (changed 2026-11-25: the old agency page ranked on page 1 for "window treatment marketing agency" and now redirects to the homepage). Add Organization JSON-LD to the new homepage, carrying over name, legalName "Winc Solutions LLC, DBA Shade Strategy", telephone (615) 795-7515, sameAs and a logo hosted on this site. Drop the self-written aggregateRating, which Google ignores for an organization's own reviews. The new site has no JSON-LD on any page today.
 4. **Blog posts keep their words.** Same address, title, H1, body and publish date. Add Article JSON-LD with the original dates.
 5. **Homepage redirects are a deliberate exception.** The checklist warns against sending old pages to the homepage. Here it applies only to pages with no rankings and no links (thank-you, coming-soon, industry-marketing, workflow automations). If the Search Console export in step 1 shows clicks on any of them, give it a closer target instead.
 6. **Redirect test.** `scripts/check-urls.mjs <origin>` requests every old URL as Googlebot, without following redirects, and fails unless each returns 200 or a single 301 to its mapped page, which itself returns 200. Run it against the deploy preview and again against production after the DNS switch.
