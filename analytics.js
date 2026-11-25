@@ -12,13 +12,12 @@
   script.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
   document.head.appendChild(script);
 
-  // Leads. The ebook form leaves the page as it posts, so its event goes by beacon.
-  document.addEventListener('submit', function (event) {
-    var form = event.target;
-    if (form && form.matches && form.matches('form[name="ebook-signup"]')) {
-      window.gtag('event', 'generate_lead', { form_name: 'ebook', transport_type: 'beacon' });
-    }
-  }, true);
+  // Leads. ebook-form.js announces a signup only after GoHighLevel has confirmed it, just before it leaves the
+  // page, so the event goes by beacon.
+  document.addEventListener('shade:lead', function (event) {
+    var name = event && event.detail && event.detail.form_name;
+    window.gtag('event', 'generate_lead', { form_name: name || 'unknown', transport_type: 'beacon' });
+  });
 
   // The strategy-call questionnaire stays on the page and reveals its result box once the lead is recorded.
   var result = document.querySelector('[data-shade-lead-form] [data-result]');

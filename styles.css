@@ -1541,3 +1541,8 @@ button, summary { cursor: pointer; }
   .proof-strip-inner, .proof-list { grid-template-columns: minmax(0, 1fr); }
 }
 .offering-price-note { margin: .3rem 0 0; color: var(--muted); font-size: .85rem; }
+
+/* Ebook form: person check and status line */
+.ebook-check { min-block-size: 65px; margin-block-start: .75rem; }
+.ebook-status { min-block-size: 1.4em; margin: .5rem 0 0; color: var(--muted); font-size: .9rem; }
+.ebook-status:empty { min-block-size: 0; margin: 0; }
