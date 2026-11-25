@@ -37,6 +37,8 @@ Emil wants to cancel Shade Strategy's Webflow plan. shadestrategy.com is the onl
 
 ### Pages carried over (same address, this site's layout)
 
+Served from `.html` files so the address has no trailing slash.
+
 | Address | Source |
 | --- | --- |
 | `/published/privacy-policy` | Webflow page text, unchanged |
@@ -67,7 +69,7 @@ Article text, headings, images and dates are copied as they are. Images are down
 | `/published/window-treatment-industry-marketing` | `/` |
 | `/published/thank-you` | `/` |
 | `/utility-pages/coming-soon` | `/` |
-| `/pricing` | `/strategy-call/` *(Claude's call: the new site doesn't publish prices)* |
+| `/pricing` | `/full-service/` *(offer pages exist since PR #4)* |
 | `/services/workflow-automations-for-window-treatment-businesses` | `/` *(Claude's call: no matching service page)* |
 
 The first five come from the README table. Redirects live in `netlify.toml` and match case-sensitively, as Webflow did.
@@ -90,6 +92,7 @@ The first five come from the README table. Redirects live in `netlify.toml` and 
 - Remove `<meta name="robots" content="noindex">` from every page.
 - Add a self-canonical on every page using `https://shadestrategy.com/` (no www, which matches Webflow today).
 - Add `sitemap.xml` (every real page, no redirects) and `robots.txt` pointing to it.
+- Indexable only when Netlify `CONTEXT` is `production` and `URL` is `https://shadestrategy.com`.
 - Keep `shadestrategywebsite.netlify.app` and deploy previews out of search with an `X-Robots-Tag: noindex` header on non-production hosts.
 - Ask Emil to add a Search Console Domain property (one TXT record) before the switch, so indexing can be watched afterward. Neither Google account has a property for this domain today.
 
