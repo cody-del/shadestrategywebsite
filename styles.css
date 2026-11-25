@@ -1548,3 +1548,14 @@ button, summary { cursor: pointer; }
 .article-body li { margin-block: .35em; }
 .article-body a { text-underline-offset: .2em; }
 .legal-page .article-body { font-size: 1.05rem; }
+
+/* Homepage contact strip and closing section link to the strategy call */
+.contact-strip .cta { justify-self: end; }
+.inquiry-action {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+@media (max-width: 63rem) {
+  .contact-strip .cta { justify-self: start; }
+}

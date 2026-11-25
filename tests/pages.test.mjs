@@ -107,3 +107,68 @@ test('every page links the stylesheet with the same version tag', () => {
   assert.equal(tags.size, 1, [...tags].join(', '));
   assert.ok(![...tags][0].startsWith('none'), 'versioned');
 });
+
+import { SITE_ORIGIN } from '../scripts/site-map.mjs';
+
+test('every page except the ebook download is indexable with a self-canonical', () => {
+  for (const page of listPages(root)) {
+    const html = read(page);
+    const noindex = /<meta name="robots" content="noindex">/.test(html);
+    const canonicals = [...html.matchAll(/<link rel="canonical" href="([^"]+)">/g)].map((m) => m[1]);
+    if (page === 'ebook/index.html') {
+      assert.ok(noindex, 'ebook keeps noindex');
+      assert.equal(canonicals.length, 0, 'ebook has no canonical');
+    } else {
+      assert.ok(!noindex, `${page} noindex`);
+      assert.deepEqual(canonicals, [SITE_ORIGIN + pagePath(page)], page);
+    }
+  }
+});
+
+test('no link points at the old Webflow site', () => {
+  for (const page of listPages(root)) {
+    const html = read(page);
+    assert.ok(!/<a\b[^>]*href="https:\/\/shadestrategy\.com/.test(html), `${page} absolute link`);
+    assert.ok(!html.includes('coming-soon'), `${page} coming-soon`);
+    assert.ok(!html.includes('Read the original testimonials'), `${page} testimonials link`);
+  }
+});
+
+test('the homepage preview forms are replaced by strategy-call links', () => {
+  const html = read('index.html');
+  assert.ok(!html.includes('contact-form'));
+  assert.ok(!html.includes('contact-preview.js'));
+  assert.ok(!html.includes('This is a preview'));
+  assert.ok(!existsSync(root + 'contact-preview.js'));
+  for (const id of ['contact', 'inquiry']) {
+    const section = html.match(new RegExp(`<section[^>]*id="${id}"[\\s\\S]*?</section>`))[0];
+    assert.match(section, /<a class="cta[^"]*" href="\.\/strategy-call\/">Book a strategy call/, id);
+  }
+});
+
+test('the ebook signup form still posts to Netlify Forms', () => {
+  const form = read('index.html').match(/<form\b[^>]*name="ebook-signup"[^>]*>/)?.[0];
+  assert.ok(form, 'ebook form');
+  assert.match(form, /action="\/ebook\/"/);
+  assert.match(form, /data-netlify="true"/);
+  assert.match(form, /netlify-honeypot="bot-field"/);
+});
+
+test('the homepage keeps its title and carries the Organization schema over', () => {
+  const html = read('index.html');
+  assert.match(html, /<title>Window Treatment Marketing \| Shade Strategy<\/title>/);
+  const orgs = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map((m) => JSON.parse(m[1]))
+    .filter((b) => b['@type'] === 'Organization');
+  assert.equal(orgs.length, 1);
+  const [org] = orgs;
+  assert.equal(org.name, 'Shade Strategy');
+  assert.equal(org.legalName, 'Winc Solutions LLC, DBA Shade Strategy');
+  assert.equal(org.telephone, '(615) 795-7515');
+  assert.equal(org.url, 'https://shadestrategy.com/');
+  const logo = typeof org.logo === 'string' ? org.logo : org.logo?.url;
+  assert.match(logo, /^https:\/\/shadestrategy\.com\/assets\//);
+  assert.ok(existsSync(root + logo.replace('https://shadestrategy.com/', '')), 'logo file exists');
+  assert.deepEqual(org.sameAs, baseline['/'].jsonLd[0].sameAs);
+  assert.equal(org.aggregateRating, undefined);
+});
