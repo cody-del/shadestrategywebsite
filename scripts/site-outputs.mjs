@@ -1,7 +1,7 @@
 // Files the build writes next to the pages: _redirects, _headers, robots.txt, sitemap.xml.
 import { SITE_ORIGIN } from './site-map.mjs';
 
-const NOT_IN_SITEMAP = new Set(['/ebook/']);
+const NOT_IN_SITEMAP = new Set(['/ebook/', '/404']);
 
 // Netlify sets CONTEXT and URL at build time. Only production on the apex domain may be indexed;
 // deploy previews, branch deploys and the netlify.app hosts send noindex.

@@ -119,14 +119,14 @@ test('every page links the stylesheet with the same version tag', () => {
 
 import { SITE_ORIGIN } from '../scripts/site-map.mjs';
 
-test('every page except the ebook download is indexable with a self-canonical', () => {
+test('every page except the ebook download and the 404 page is indexable with a self-canonical', () => {
   for (const page of listPages(root)) {
     const html = read(page);
     const noindex = /<meta name="robots" content="noindex">/.test(html);
     const canonicals = [...html.matchAll(/<link rel="canonical" href="([^"]+)">/g)].map((m) => m[1]);
-    if (page === 'ebook/index.html') {
-      assert.ok(noindex, 'ebook keeps noindex');
-      assert.equal(canonicals.length, 0, 'ebook has no canonical');
+    if (page === 'ebook/index.html' || page === '404.html') {
+      assert.ok(noindex, `${page} keeps noindex`);
+      assert.equal(canonicals.length, 0, `${page} has no canonical`);
     } else {
       assert.ok(!noindex, `${page} noindex`);
       assert.deepEqual(canonicals, [SITE_ORIGIN + pagePath(page)], page);
