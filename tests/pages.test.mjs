@@ -197,3 +197,21 @@ test('the blog posts’ closing links go to the strategy call', () => {
   assert.ok(read('blog/why-window-treatment-companies-need-seo.html').includes('<a href="/strategy-call/">Get your free SEO report from Shade Strategy here</a>'));
   assert.ok(read('blog/chatgpt-for-window-treatment-businesses.html').includes('<a href="/strategy-call/">Reach out to Shade Strategy here</a>'));
 });
+
+test('no page shows stale announcements or update sign-ups that do not exist', () => {
+  for (const page of listPages(root)) {
+    const html = read(page);
+    for (const stale of ['IWCE 2025', 'Free Visualizer', 'Get beta updates', 'Get tool updates']) {
+      assert.ok(!html.includes(stale), `${page}: ${stale}`);
+    }
+  }
+});
+
+test('the stylesheet has no rules for the removed homepage forms', () => {
+  const css = read('styles.css');
+  for (const selector of ['.inquiry-form', '.inquiry-fields', '.inquiry-wide', '.contact-status']) {
+    assert.ok(!css.includes(selector), selector);
+  }
+  assert.ok(read('index.html').includes('class="contact-fields ebook-fields"'), 'ebook form still uses .contact-fields');
+  assert.ok(css.includes('.contact-fields'), '.contact-fields kept for the ebook form');
+});

@@ -395,12 +395,6 @@ button, summary { cursor: pointer; }
   background: var(--form-surface, #2d2d2d);
 }
 .contact-fields button:disabled { opacity: .55; cursor: default; }
-.contact-status {
-  margin: 0;
-  color: var(--form-status, #ddd);
-  font-size: .9rem;
-}
-.contact-status:not(:empty) { margin-block-start: .75rem; }
 
 .about-me {
   display: grid;
@@ -775,31 +769,10 @@ button, summary { cursor: pointer; }
 }
 
 .inquiry {
-  --form-ink: var(--ink);
-  --form-surface: var(--paper);
-  --form-status: var(--muted);
   padding: clamp(2.75rem, 6vw, 5.5rem) clamp(1.5rem, 4vw, 3.5rem);
   border-block-start: 1px solid #e5e5e5;
   background: #f7f7f7;
 }
-.inquiry-form {
-  max-inline-size: 44rem;
-  margin-inline: auto;
-}
-.inquiry-fields {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-.inquiry-wide { grid-column: 1 / -1; }
-.inquiry-fields textarea {
-  min-block-size: 6.5rem;
-  resize: vertical;
-}
-.inquiry-fields .cta {
-  justify-self: center;
-  margin-block-start: .4rem;
-}
-.inquiry-form .contact-status { text-align: center; }
 
 .site-footer {
   padding: clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 3.5rem) 1.5rem;
