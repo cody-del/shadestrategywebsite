@@ -49,3 +49,61 @@ for (const [file, archived] of LEGAL) {
     assert.ok(plain(html).includes(firstParagraph), 'first Webflow paragraph present');
   });
 }
+
+const baseline = JSON.parse(read('migration/seo-baseline.json')).pages;
+const POSTS = [
+  'chatgpt-for-window-treatment-businesses',
+  'how-to-increase-revenue-for-your-window-treatment-business',
+  'how-to-start-a-window-treatment-business',
+  'why-window-treatment-companies-need-seo',
+];
+
+for (const slug of POSTS) {
+  test(`blog post ${slug} keeps its address, title, H1 and date`, () => {
+    const file = `blog/${slug}.html`;
+    assert.ok(existsSync(root + file), file);
+    const html = read(file);
+    const old = baseline[`/blog/${slug}`];
+    const title = decodeEntities(html.match(/<title>([\s\S]*?)<\/title>/)[1]);
+    assert.equal(title, old.title);
+    const h1s = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)];
+    assert.equal(h1s.length, 1, 'one H1');
+    assert.equal(plain(h1s[0][1]), old.h1);
+    assert.ok(html.includes(`<link rel="canonical" href="https://shadestrategy.com/blog/${slug}">`), 'canonical');
+    const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
+    const articles = blocks.filter((b) => b['@type'] === 'Article' || b['@type'] === 'BlogPosting');
+    assert.equal(articles.length, 1, 'one Article JSON-LD');
+    const [article] = articles;
+    assert.equal(article.headline, old.h1);
+    assert.equal(article.datePublished, '2025-10-17');
+    assert.ok(article.author?.name, 'author');
+    assert.equal(article.publisher?.name, 'Shade Strategy');
+    assert.match(html, /<time datetime="2025-10-17">/);
+    const imgs = [...html.matchAll(/<img\b[^>]*>/g)].map((m) => m[0]).filter((t) => !t.includes('shade-strategy.png'));
+    assert.ok(imgs.length >= 1, 'featured image');
+    for (const img of imgs) {
+      assert.match(img, /\salt="[^"]+"/, img);
+      assert.match(img, new RegExp(`\\ssrc="\\.\\./assets/blog/${slug}/`), img);
+    }
+  });
+}
+
+test('no page loads or links anything from Webflow', () => {
+  for (const page of listPages(root)) {
+    const html = read(page);
+    assert.ok(!/website-files\.com|webflow\.com|webflow\.io/.test(html), page);
+  }
+});
+
+test('Resources lists all four blog posts', () => {
+  const html = read('resources/index.html');
+  assert.match(html, /id="blog"/);
+  for (const slug of POSTS) assert.ok(html.includes(`href="../blog/${slug}"`), slug);
+  assert.ok(!html.includes('window-treatment-marketing-blog'), 'old blog list link');
+});
+
+test('every page links the stylesheet with the same version tag', () => {
+  const tags = new Set(listPages(root).map((page) => read(page).match(/styles\.css(\?v=[\w-]+)?"/)?.[1] ?? 'none'));
+  assert.equal(tags.size, 1, [...tags].join(', '));
+  assert.ok(![...tags][0].startsWith('none'), 'versioned');
+});
