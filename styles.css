@@ -1532,3 +1532,34 @@ button, summary { cursor: pointer; }
 @media (max-width: 63rem) {
   .contact-strip .cta { justify-self: start; }
 }
+
+/* Individual service prices lead; Full Service tiles stay quieter outside the Full Service page */
+.offering-price {
+  margin: .7rem 0 0;
+  font-size: clamp(1.35rem, 2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.03em;
+}
+.offering-price span {
+  display: block;
+  margin-block-end: .2rem;
+  color: #51367e;
+  font-size: .75rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.offering-price small {
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.tier-mini-quiet .tier-mini { border-color: #e5e5e5; }
+.tier-mini-quiet .tier-mini-price { font-weight: 600; color: var(--muted); }
+.site-nav .nav-label,
+.site-nav .nav-booking { white-space: nowrap; }
+/* The desktop bar only has room for "Sign in" from 75rem up; below that it lives in the footer (and the phone menu) */
+@media (min-width: 63.0625rem) and (max-width: 75rem) {
+  .main-menu .nav-signin { display: none; }
+}

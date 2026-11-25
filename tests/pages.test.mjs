@@ -178,7 +178,8 @@ test('the homepage keeps its title and carries the Organization schema over', ()
   const logo = typeof org.logo === 'string' ? org.logo : org.logo?.url;
   assert.match(logo, /^https:\/\/shadestrategy\.com\/assets\//);
   assert.ok(existsSync(root + logo.replace('https://shadestrategy.com/', '')), 'logo file exists');
-  assert.deepEqual(org.sameAs, baseline['/'].jsonLd[0].sameAs);
+  // Only the profiles the Webflow footer linked on every page; its schema's YouTube and Twitter answer 404.
+  assert.deepEqual(org.sameAs, ['https://www.facebook.com/shadestrategy', 'https://www.instagram.com/shadestrategy/']);
   assert.equal(org.aggregateRating, undefined);
 });
 
@@ -214,4 +215,41 @@ test('the stylesheet has no rules for the removed homepage forms', () => {
   }
   assert.ok(read('index.html').includes('class="contact-fields ebook-fields"'), 'ebook form still uses .contact-fields');
   assert.ok(css.includes('.contact-fields'), '.contact-fields kept for the ebook form');
+});
+
+const serviceCards = (html) => [...html.matchAll(/<li class="offering">([\s\S]*?)<\/li>/g)].map((m) => m[1]);
+
+test('individual services show the prices that exist and leave the rest blank', () => {
+  for (const page of ['services/index.html', 'index.html']) {
+    const cards = serviceCards(read(page));
+    const ads = cards.find((c) => /<h3>Google Ads<\/h3>/.test(c));
+    assert.ok(ads, `${page}: Google Ads card`);
+    assert.match(ads, /class="offering-price"[^>]*>[\s\S]*\$399[\s\S]*\$299 setup/, `${page}: Google Ads price`);
+    for (const card of cards.filter((c) => c !== ads && /<h3>/.test(c))) {
+      assert.ok(!card.includes('offering-price'), `${page}: unexpected price in ${card.match(/<h3>(.*?)<\/h3>/)?.[1]}`);
+    }
+  }
+  assert.match(read('services/google-ads-for-window-treatment-companies/index.html'), /class="offer-availability"[^>]*>[^<]*\$399/);
+});
+
+test('Full Service packages sit second: no featured tile or badge outside the Full Service page', () => {
+  for (const page of ['index.html', 'services/index.html']) {
+    const html = read(page);
+    assert.ok(!html.includes('tier-featured'), `${page}: tier-featured`);
+    assert.ok(!html.includes('Most popular'), `${page}: Most popular`);
+    assert.ok(html.includes('tier-mini-grid tier-mini-quiet'), `${page}: quiet package tiles`);
+    assert.ok(html.indexOf('offering-price') < html.indexOf('tier-mini-grid'), `${page}: individual prices come first`);
+  }
+});
+
+test('every page links client and team sign-in in the menu and the footer', () => {
+  for (const page of listPages(root)) {
+    if (page === 'ebook/index.html') continue; // bare download page: no menu or footer
+    const html = read(page);
+    const nav = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)?.[0] ?? '';
+    assert.ok(nav.includes('href="https://ai.shadestrategy.com/sign-in"'), `${page}: menu sign-in`);
+    const footer = html.match(/<footer class="site-footer">[\s\S]*?<\/footer>/)?.[0] ?? '';
+    assert.ok(footer.includes('href="https://ai.shadestrategy.com/sign-in"'), `${page}: footer client and team sign-in`);
+    assert.ok(footer.includes('href="https://ads.shadestrategy.com/login"'), `${page}: footer Google Ads workspace`);
+  }
 });
