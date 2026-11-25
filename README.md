@@ -8,7 +8,7 @@ python3 -m http.server 5478 --bind 127.0.0.1
 
 Open [the homepage](http://127.0.0.1:5478/).
 
-For the hosted preview, Netlify runs `node scripts/build-preview.mjs` and serves `preview-build/`. The preview pages are marked `noindex`. Both inquiry forms validate and show a preview message without sending anything. The ebook signup opens the download page locally without recording any information. For hosted signups, enable Netlify form detection before deploying and look for submissions under `ebook-signup`.
+For the hosted preview, Netlify runs `node scripts/build-preview.mjs` and serves `preview-build/`. The preview pages are marked `noindex`. The homepage has no inquiry forms: its "Get in touch" and closing sections send visitors to the strategy-call questionnaire (`/strategy-call/`), which records the lead in Launch Hub and GoHighLevel. The ebook signup opens the download page locally without recording any information. For hosted signups, enable Netlify form detection before deploying and look for submissions under `ebook-signup`.
 
 The local homepage includes a Google Partner design reference. The hosted build excludes it. Use the official badge embed from the Google Ads manager account before displaying a badge on the hosted site.
 

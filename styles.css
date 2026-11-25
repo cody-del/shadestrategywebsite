@@ -800,6 +800,29 @@ button, summary { cursor: pointer; }
   margin-block-start: .4rem;
 }
 .inquiry-form .contact-status { text-align: center; }
+.contact-call {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem 1.5rem;
+  min-inline-size: 0;
+}
+.contact-call p {
+  margin: 0;
+  max-inline-size: 38rem;
+  font-size: 1.05rem;
+  color: #ddd;
+}
+.inquiry-call {
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  max-inline-size: 40rem;
+  margin-inline: auto;
+  text-align: center;
+}
+.inquiry-call p { margin: 0; color: var(--muted); font-size: 1.05rem; }
 
 .site-footer {
   padding: clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 3.5rem) 1.5rem;
