@@ -83,3 +83,18 @@ test('allowDirect accepts a 200 or a single 301 to the expected page', async () 
   });
   assert.equal(hop.ok, true, hop.detail);
 });
+
+test('allowDirect fails a 200 whose stylesheet does not load from that address', async () => {
+  const page = '<link rel="stylesheet" href="../styles.css?v=1">';
+  const broken = await checkUrl({
+    origin, path: '/blog/x/', expectTo: '/blog/x', allowDirect: true,
+    fetchImpl: fakeFetch({ [`${origin}/blog/x/`]: { status: 200, body: page }, [`${origin}/blog/styles.css?v=1`]: { status: 404 } }),
+  });
+  assert.equal(broken.ok, false);
+  assert.match(broken.detail, /stylesheet/);
+  const fixed = await checkUrl({
+    origin, path: '/blog/x/', expectTo: '/blog/x', allowDirect: true,
+    fetchImpl: fakeFetch({ [`${origin}/blog/x/`]: { status: 200, body: '<link rel="stylesheet" href="/styles.css?v=1">' }, [`${origin}/styles.css?v=1`]: { status: 200 } }),
+  });
+  assert.equal(fixed.ok, true, fixed.detail);
+});

@@ -7,6 +7,18 @@ import { decodeEntities } from '../scripts/extract-seo.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = (file) => readFileSync(root + file, 'utf8');
+// Pages served at a slashless address (/blog/x) also answer at /blog/x/, where ../ resolves one
+// level too deep. Their links must be root-absolute so both addresses load styles and images.
+function assertRootAbsolute(html, file) {
+  for (const m of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+    const url = m[1];
+    if (/^(https?:|mailto:|tel:|#)/.test(url)) continue;
+    assert.ok(url.startsWith('/'), `${file}: root-absolute path expected, got ${url}`);
+  }
+  for (const m of html.matchAll(/srcset="([^"]+)"/g)) {
+    for (const part of m[1].split(',')) assert.ok(part.trim().startsWith('/'), `${file}: srcset ${part}`);
+  }
+}
 const plain = (html) => decodeEntities(html.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();
 
 test('pagePath maps files to URL paths', () => {
@@ -37,11 +49,7 @@ for (const [file, archived] of LEGAL) {
     assert.match(html, /class="site-footer"/);
     const path = file.replace(/\.html$/, '');
     assert.ok(html.includes(`<link rel="canonical" href="https://shadestrategy.com/${path}">`), 'canonical');
-    for (const m of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
-      const url = m[1];
-      if (/^(https?:|mailto:|tel:|#)/.test(url)) continue;
-      assert.ok(url.startsWith('../'), `relative asset path: ${url}`);
-    }
+    assertRootAbsolute(html, file);
     const old = read(`archive/webflow-2026-11/${archived}`);
     const block = old.match(/<div class="rich-text-block-\d w-richtext">([\s\S]*?)<\/div>/)[1];
     const firstParagraph = plain(block.match(/<p\b[^>]*>([\s\S]*?)<\/p>/)[1]);
@@ -83,8 +91,9 @@ for (const slug of POSTS) {
     assert.ok(imgs.length >= 1, 'featured image');
     for (const img of imgs) {
       assert.match(img, /\salt="[^"]+"/, img);
-      assert.match(img, new RegExp(`\\ssrc="\\.\\./assets/blog/${slug}/`), img);
+      assert.match(img, new RegExp(`\\ssrc="/assets/blog/${slug}/`), img);
     }
+    assertRootAbsolute(html, file);
   });
 }
 

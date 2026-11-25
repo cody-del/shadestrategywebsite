@@ -13,7 +13,16 @@ function request(fetchImpl, url) {
 export async function checkUrl({ origin, path, expectTo, allowDirect = false, fetchImpl = fetch }) {
   const url = origin + path;
   const res = await request(fetchImpl, url);
-  if (expectTo == null || (allowDirect && res.status === 200)) {
+  if (allowDirect && res.status === 200) {
+    // A 200 at an alternate address must still render: its stylesheet has to load from there.
+    const href = (await res.text()).match(/<link[^>]*rel="stylesheet"[^>]*href="([^"]+)"/)?.[1];
+    if (href) {
+      const css = await request(fetchImpl, new URL(href, url).href);
+      if (css.status !== 200) return { ok: false, detail: `${path}: 200 but its stylesheet ${new URL(href, url).pathname} answered ${css.status}` };
+    }
+    return { ok: true, detail: `${path} 200` };
+  }
+  if (expectTo == null) {
     return res.status === 200 ? { ok: true, detail: `${path} 200` } : { ok: false, detail: `${path}: expected 200, got ${res.status}` };
   }
   if (res.status !== 301) return { ok: false, detail: `${path}: expected 301 to ${expectTo}, got ${res.status}` };
@@ -46,7 +55,7 @@ export async function checkOrigin(origin, { indexable = false, fetchImpl = fetch
     ...REDIRECTS.map(({ from, to }) => ({ path: from, expectTo: to })),
     ...REDIRECTS.map(({ from, to }) => ({ path: `${from}/`, expectTo: to })),
     { path: '/pricing?gclid=test', expectTo: '/full-service/' },
-    { path: '/published/privacy-policy/', expectTo: '/published/privacy-policy', allowDirect: true },
+    ...KEPT.filter((path) => path !== '/').map((path) => ({ path: `${path}/`, expectTo: path, allowDirect: true })),
   ];
   const results = [];
   for (const check of checks) results.push(await checkUrl({ origin, fetchImpl, ...check }));
