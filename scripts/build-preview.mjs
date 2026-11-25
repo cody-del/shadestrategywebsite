@@ -15,7 +15,7 @@ if (hostedHtml.includes('google-partner-preview.png')) {
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 await writeFile(new URL('index.html', output), hostedHtml);
-for (const file of ['styles.css', 'navigation.js', 'contact-preview.js']) {
+for (const file of ['styles.css', 'navigation.js']) {
   await cp(new URL(file, root), new URL(file, output));
 }
 for (const directory of ['services/', 'industries/', 'about/', 'results/', 'resources/', 'contact/', 'strategy-call/', 'ebook/']) {
