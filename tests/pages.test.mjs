@@ -255,3 +255,10 @@ test('every page links client and team sign-in in the menu and the footer', () =
     assert.ok(footer.includes('href="https://ads.shadestrategy.com/login"'), `${page}: footer Google Ads workspace`);
   }
 });
+
+test('buttons ease into hover, show a pressed state, and keep still for reduced motion', () => {
+  const css = read('styles.css');
+  assert.match(css, /\.cta,\s*\.ss-lf-button \{[^}]*transition:[^}]*background-color[^}]*\}/);
+  assert.match(css, /\.cta:active,\s*\.ss-lf-button:active:not\(:disabled\) \{[^}]*transform: translateY\(1px\)/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\) \{\s*\.cta,\s*\.ss-lf-button \{ transition: none; \}\s*\.cta:active,\s*\.ss-lf-button:active:not\(:disabled\) \{ transform: none; \}/);
+});

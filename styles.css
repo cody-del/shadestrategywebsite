@@ -1581,3 +1581,15 @@ button, summary { cursor: pointer; }
 @media (min-width: 63.0625rem) and (max-width: 75rem) {
   .main-menu .nav-signin { display: none; }
 }
+
+/* Button feedback: hover eases in, a press nudges the button down, both still for reduced motion */
+.cta,
+.ss-lf-button { transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .1s ease; }
+.cta:active,
+.ss-lf-button:active:not(:disabled) { transform: translateY(1px); }
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .ss-lf-button { transition: none; }
+  .cta:active,
+  .ss-lf-button:active:not(:disabled) { transform: none; }
+}
