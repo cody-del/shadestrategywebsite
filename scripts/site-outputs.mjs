@@ -13,8 +13,17 @@ export function redirectsFile(redirects) {
   return redirects.map(({ from, to }) => `${from} ${to} 301\n`).join('');
 }
 
+const SECURITY_HEADERS = [
+  'X-Content-Type-Options: nosniff',
+  'Referrer-Policy: strict-origin-when-cross-origin',
+  'X-Frame-Options: SAMEORIGIN',
+  'Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()',
+];
+
+// Security headers on every path; noindex as well on every host except production on the apex domain.
 export function headersFile(indexable) {
-  return indexable ? '' : '/*\n  X-Robots-Tag: noindex\n';
+  const headers = indexable ? SECURITY_HEADERS : [...SECURITY_HEADERS, 'X-Robots-Tag: noindex'];
+  return `/*\n${headers.map((h) => `  ${h}\n`).join('')}`;
 }
 
 export function robotsTxt() {

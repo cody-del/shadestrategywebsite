@@ -70,3 +70,33 @@ test('the brand font is preloaded and has a size-matched fallback', () => {
   assert.match(css, /@font-face \{\s*font-family: "Hanken Grotesk Fallback";\s*src: local\("Arial"\);\s*size-adjust: \d+(\.\d+)?%;/);
   assert.match(css, /font-family: "Hanken Grotesk", "Hanken Grotesk Fallback", "Helvetica Neue", sans-serif;/);
 });
+
+test('each landmark on the Full Service page has its own name', () => {
+  const html = read('full-service/index.html');
+  const wrap = html.match(/<div class="compare-wrap"[^>]*>/)[0];
+  assert.match(wrap, /role="region"/);
+  assert.match(wrap, /tabindex="0"/);
+  assert.ok(!wrap.includes('aria-labelledby="compare-title"'), 'shares the section label');
+  assert.match(wrap, /aria-label="Package comparison table"/);
+});
+
+test('pages reflow at 320px: long words wrap and the strategy-call grid can shrink', () => {
+  const css = read('styles.css');
+  assert.match(css, /\.article-body \{[^}]*overflow-wrap: break-word;/);
+  assert.match(read('strategy-call/index.html'), /\.strategy-layout\{display:grid;grid-template-columns:minmax\(0,1fr\);/);
+  // Two answer columns only where whole words fit; one column on the narrowest phones.
+  const call = read('strategy-call/index.html');
+  assert.match(call, /\.ss-choices-compact,\.strategy-form \.ss-choices-three\{grid-template-columns:minmax\(0,1fr\)\}/);
+  assert.match(call, /@media \(min-width:360px\)\{\.strategy-form \.ss-choices-compact,\.strategy-form \.ss-choices-three\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)\}\}/);
+  assert.ok(!call.includes('.ss-lf-opt span{min-width:0}'), 'no mid-word breaks');
+});
+
+test('the terms are linked in every footer and beside the SMS opt-in', () => {
+  for (const page of listPages(root)) {
+    const html = read(page);
+    const footer = html.match(/<footer class="site-footer">[\s\S]*?<\/footer>/)?.[0];
+    if (!footer) continue;
+    assert.match(footer, /<a href="[^"]*published\/terms-and-conditions">Terms and Conditions<\/a>/, page);
+  }
+  assert.match(read('strategy-call/index.html'), /<p class="ss-privacy">[^]*?privacy-policy">Privacy Policy<\/a>[^<]*<a href="[^"]*terms-and-conditions">Terms and Conditions<\/a>/);
+});

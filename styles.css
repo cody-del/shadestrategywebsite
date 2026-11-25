@@ -1437,6 +1437,7 @@ button, summary { cursor: pointer; }
   padding: clamp(2rem, 5vw, 3.5rem) max(var(--edge), 1.25rem) clamp(3rem, 7vw, 5.5rem);
   font-size: 1.125rem;
   line-height: 1.7;
+  overflow-wrap: break-word;
 }
 .article-body > :first-child { margin-block-start: 0; }
 .article-body h2,
