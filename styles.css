@@ -773,6 +773,29 @@ button, summary { cursor: pointer; }
   border-block-start: 1px solid #e5e5e5;
   background: #f7f7f7;
 }
+.contact-call {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem 1.5rem;
+  min-inline-size: 0;
+}
+.contact-call p {
+  margin: 0;
+  max-inline-size: 38rem;
+  font-size: 1.05rem;
+  color: #ddd;
+}
+.inquiry-call {
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  max-inline-size: 40rem;
+  margin-inline: auto;
+  text-align: center;
+}
+.inquiry-call p { margin: 0; color: var(--muted); font-size: 1.05rem; }
 
 .site-footer {
   padding: clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 3.5rem) 1.5rem;
@@ -1524,11 +1547,6 @@ button, summary { cursor: pointer; }
 
 /* Homepage contact strip and closing section link to the strategy call */
 .contact-strip .cta { justify-self: end; }
-.inquiry-action {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-}
 @media (max-width: 63rem) {
   .contact-strip .cta { justify-self: start; }
 }
