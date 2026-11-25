@@ -155,12 +155,20 @@ test('the homepage preview forms are replaced by strategy-call links', () => {
   }
 });
 
-test('the ebook signup form still posts to Netlify Forms', () => {
-  const form = read('index.html').match(/<form\b[^>]*name="ebook-signup"[^>]*>/)?.[0];
+test('the ebook signup form sends to GoHighLevel through the site function', () => {
+  const html = read('index.html');
+  const form = html.match(/<form\b[^>]*name="ebook-signup"[^>]*>[\s\S]*?<\/form>/)?.[0];
   assert.ok(form, 'ebook form');
-  assert.match(form, /action="\/ebook\/"/);
-  assert.match(form, /data-netlify="true"/);
-  assert.match(form, /netlify-honeypot="bot-field"/);
+  const tag = form.match(/<form\b[^>]*>/)[0];
+  assert.match(tag, /action="\/api\/ebook-signup"/);
+  assert.match(tag, /data-ebook-form/);
+  assert.ok(!/data-netlify|netlify-honeypot|bot-field/.test(form), 'Netlify Forms is no longer used');
+  // The honeypot is named website (Chrome autofills names with "company"), hidden from people and screen readers.
+  assert.match(form, /<div class="visually-hidden" aria-hidden="true">\s*<label>Leave this field empty <input name="website" tabindex="-1" autocomplete="off"><\/label>/);
+  assert.match(form, /<div class="ebook-check" data-turnstile data-sitekey="0x4AAAAAAGDn79T2ZVsXk_Ga"><\/div>/);
+  assert.match(form, /<p class="ebook-status" role="status" data-ebook-status><\/p>/);
+  assert.match(form, /privacy-policy">Privacy policy<\/a>/);
+  assert.ok(html.includes('<script src="./ebook-form.js" defer></script>'));
 });
 
 test('the homepage keeps its title and carries the Organization schema over', () => {

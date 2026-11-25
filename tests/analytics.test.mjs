@@ -27,7 +27,7 @@ function run(hostname, { result = null } = {}) {
   context.window = context;
   vm.runInNewContext(source, context);
   const events = () => (context.dataLayer || []).map((args) => Array.from(args)).filter((a) => a[0] === 'event');
-  const fire = (type, target) => (listeners[type] || []).forEach((fn) => fn({ target }));
+  const fire = (type, target) => (listeners[type] || []).forEach((fn) => fn(target && target.detail ? target : { target }));
   return { appended, context, events, fire, observers, listeners };
 }
 
@@ -56,10 +56,11 @@ test('stays off on previews, netlify.app, www and localhost', () => {
   }
 });
 
-test('the ebook signup sends generate_lead once, by beacon', () => {
+test('a confirmed ebook signup sends generate_lead by beacon; a bare form submit does not', () => {
   const { events, fire } = run('shadestrategy.com');
   fire('submit', element(['form[name="ebook-signup"]']));
-  fire('submit', element(['form.other']));
+  assert.equal(events().filter((e) => e[1] === 'generate_lead').length, 0, 'submitting is not yet a lead');
+  fire('shade:lead', { detail: { form_name: 'ebook' } });
   const leads = events().filter((e) => e[1] === 'generate_lead');
   assert.equal(leads.length, 1);
   assert.equal(leads[0][2].form_name, 'ebook');
