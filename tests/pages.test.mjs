@@ -181,3 +181,19 @@ test('the homepage keeps its title and carries the Organization schema over', ()
   assert.deepEqual(org.sameAs, baseline['/'].jsonLd[0].sameAs);
   assert.equal(org.aggregateRating, undefined);
 });
+
+test('the homepage keeps the Search Console verification tag from Webflow', () => {
+  const webflow = read('archive/webflow-2026-11/index.html').match(/<meta content="([^"]+)" name="google-site-verification"/)[1];
+  assert.ok(read('index.html').includes(`<meta name="google-site-verification" content="${webflow}">`));
+});
+
+test('every page loads the analytics script', () => {
+  for (const page of listPages(root)) {
+    assert.ok(read(page).includes('<script src="/analytics.js" defer></script>'), page);
+  }
+});
+
+test('the blog posts’ closing links go to the strategy call', () => {
+  assert.ok(read('blog/why-window-treatment-companies-need-seo.html').includes('<a href="/strategy-call/">Get your free SEO report from Shade Strategy here</a>'));
+  assert.ok(read('blog/chatgpt-for-window-treatment-businesses.html').includes('<a href="/strategy-call/">Reach out to Shade Strategy here</a>'));
+});
