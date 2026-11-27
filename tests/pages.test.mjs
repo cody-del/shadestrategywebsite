@@ -257,9 +257,9 @@ test('every page links client and team sign-in in the menu and the footer', () =
     if (page === 'ebook/index.html') continue; // bare download page: no menu or footer
     const html = read(page);
     const nav = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)?.[0] ?? '';
-    assert.ok(nav.includes('href="https://ai.shadestrategy.com/sign-in"'), `${page}: menu sign-in`);
+    assert.ok(nav.includes('href="https://shademain.netlify.app/sign-in"'), `${page}: menu sign-in`);
     const footer = html.match(/<footer class="site-footer">[\s\S]*?<\/footer>/)?.[0] ?? '';
-    assert.ok(footer.includes('href="https://ai.shadestrategy.com/sign-in"'), `${page}: footer client and team sign-in`);
+    assert.ok(footer.includes('href="https://shademain.netlify.app/sign-in"'), `${page}: footer client and team sign-in`);
     assert.ok(footer.includes('href="https://ads.shadestrategy.com/login"'), `${page}: footer Google Ads workspace`);
   }
 });
